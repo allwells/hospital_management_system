@@ -11,35 +11,36 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author Allwell Festus
+ * @author Allwell Onen
  */
-public class addAdmin extends javax.swing.JFrame {
+public class addAdmin extends javax.swing.JFrame
+{
 
     private Connection con;
-    
+
     public addAdmin() {
         initComponents();
         setLocationRelativeTo(null);
     }
-    
+
     private void db() {
         con = sqlite_connection.connection();
     }
-    
+
     private void close() {
         System.exit(0);
     }
-    
+
     private void minimize() {
         this.setState(JFrame.ICONIFIED);
     }
-    
+
     private void register() {
-        try{
-            String sqlite="INSERT INTO `admin` (`Name`, `Username`, `Email`, `Password`)"
-                    + "VALUES ('"+fullname.getText()+"', '"+username.getText()+"',"
-                    + "'"+email.getText()+"', '"+password.getText()+"')";
-            
+        try {
+            String sqlite = "INSERT INTO `admin` (`Name`, `Username`, `Email`, `Password`)"
+                    + "VALUES ('" + fullname.getText() + "', '" + username.getText() + "',"
+                    + "'" + email.getText() + "', '" + password.getText() + "')";
+
             db();
             int check = con.createStatement().executeUpdate(sqlite);
             if (check == 1) {
@@ -100,7 +101,7 @@ public class addAdmin extends javax.swing.JFrame {
         logoPanel.add(logoTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 0, -1, 50));
 
         logo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/Hospital 3_35px.png"))); // NOI18N
+        logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/drawable/logo.png"))); // NOI18N
         logoPanel.add(logo, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 0, 50, 50));
 
         mainLayout.add(logoPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 700, 50));
@@ -118,7 +119,7 @@ public class addAdmin extends javax.swing.JFrame {
 
         bckBtn.setBackground(new java.awt.Color(255, 255, 255));
         bckBtn.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        bckBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/icons80x/Back_25px_3.png"))); // NOI18N
+        bckBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/drawable/back_ico_01.png"))); // NOI18N
         bckBtn.setOpaque(true);
         bckBtn.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -135,23 +136,23 @@ public class addAdmin extends javax.swing.JFrame {
 
         closeBtn.setBackground(new java.awt.Color(255, 255, 255));
         closeBtn.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        closeBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/icons80x/Multiply_30px.png"))); // NOI18N
+        closeBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/drawable/close_ico_02.png"))); // NOI18N
         closeBtn.setOpaque(true);
         closeBtn.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 closeBtnMouseClicked(evt);
             }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                closeBtnMouseExited(evt);
-            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 closeBtnMouseEntered(evt);
             }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                closeBtnMouseExited(evt);
+            }
         });
-        mainLayout.add(closeBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 0, 40, -1));
+        mainLayout.add(closeBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 0, 40, 30));
 
         usernameIcon.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        usernameIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/icons80x/Administrator Male_20px_3.png"))); // NOI18N
+        usernameIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/drawable/login_txtfield_ico_01.png"))); // NOI18N
         mainLayout.add(usernameIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 180, 30, 30));
 
         email.setBackground(new java.awt.Color(240, 240, 240));
@@ -171,7 +172,7 @@ public class addAdmin extends javax.swing.JFrame {
         mainLayout.add(password, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 250, 300, 30));
 
         passwordIcon.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        passwordIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/icons80x/Message_25px_1.png"))); // NOI18N
+        passwordIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/drawable/login_email_ico.png"))); // NOI18N
         mainLayout.add(passwordIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 250, 30, 30));
 
         regBtn.setBackground(new java.awt.Color(74, 179, 175));
@@ -204,11 +205,11 @@ public class addAdmin extends javax.swing.JFrame {
         mainLayout.add(username, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 180, 300, 30));
 
         emailIcon.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        emailIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/icons80x/Administrator Male_20px_3.png"))); // NOI18N
+        emailIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/drawable/login_txtfield_ico_01.png"))); // NOI18N
         mainLayout.add(emailIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 180, 30, 30));
 
         confrmPsdIcon.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        confrmPsdIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/icons80x/Key_20px_1.png"))); // NOI18N
+        confrmPsdIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/drawable/login_pwdfield_ico.png"))); // NOI18N
         mainLayout.add(confrmPsdIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 250, 30, 30));
 
         lblCnfrmPsd.setFont(new java.awt.Font("Segoe UI Semilight", 0, 13)); // NOI18N
@@ -245,17 +246,17 @@ public class addAdmin extends javax.swing.JFrame {
 
         minimize.setBackground(new java.awt.Color(255, 255, 255));
         minimize.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        minimize.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hms_login/icons/minimize.png"))); // NOI18N
+        minimize.setIcon(new javax.swing.ImageIcon(getClass().getResource("/drawable/minimize.png"))); // NOI18N
         minimize.setOpaque(true);
         minimize.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 minimizeMouseClicked(evt);
             }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                minimizeMouseExited(evt);
-            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 minimizeMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                minimizeMouseExited(evt);
             }
         });
         mainLayout.add(minimize, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 0, 40, 30));
@@ -285,16 +286,16 @@ public class addAdmin extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void bckBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bckBtnMouseClicked
-        new adminPortal().show();
+        new adminDashboard().show();
         dispose();
     }//GEN-LAST:event_bckBtnMouseClicked
 
     private void bckBtnMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bckBtnMouseEntered
-        bckBtn.setBackground(new Color(240,240,240));
+        bckBtn.setBackground(new Color(240, 240, 240));
     }//GEN-LAST:event_bckBtnMouseEntered
 
     private void bckBtnMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bckBtnMouseExited
-        bckBtn.setBackground(new Color(255,255,255));
+        bckBtn.setBackground(new Color(255, 255, 255));
     }//GEN-LAST:event_bckBtnMouseExited
 
     private void closeBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_closeBtnMouseClicked
@@ -302,11 +303,11 @@ public class addAdmin extends javax.swing.JFrame {
     }//GEN-LAST:event_closeBtnMouseClicked
 
     private void closeBtnMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_closeBtnMouseEntered
-        closeBtn.setBackground(new Color(240,240,240));
+        closeBtn.setBackground(new Color(240, 240, 240));
     }//GEN-LAST:event_closeBtnMouseEntered
 
     private void closeBtnMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_closeBtnMouseExited
-        closeBtn.setBackground(new Color(255,255,255));
+        closeBtn.setBackground(new Color(255, 255, 255));
     }//GEN-LAST:event_closeBtnMouseExited
 
     private void regBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_regBtnMouseClicked
@@ -318,18 +319,18 @@ public class addAdmin extends javax.swing.JFrame {
     }//GEN-LAST:event_minimizeMouseClicked
 
     private void minimizeMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_minimizeMouseExited
-        minimize.setBackground(new Color(255,255,255));
+        minimize.setBackground(new Color(255, 255, 255));
     }//GEN-LAST:event_minimizeMouseExited
 
     private void minimizeMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_minimizeMouseEntered
-        minimize.setBackground(new Color(240,240,240));
+        minimize.setBackground(new Color(240, 240, 240));
     }//GEN-LAST:event_minimizeMouseEntered
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
@@ -343,7 +344,7 @@ public class addAdmin extends javax.swing.JFrame {
         }
         //</editor-fold>
         //</editor-fold>
-        
+
         //</editor-fold>
         //</editor-fold>
 

@@ -15,39 +15,40 @@ import javax.swing.JFrame;
  *
  * @author Allwell Festus
  */
-public class profile extends javax.swing.JFrame {
-    
-    Connection con;
-    ResultSet rs;
-    
+public class profile extends javax.swing.JFrame
+{
+
+    private static Connection con;
+    private static ResultSet rs;
+
     private final String login_username = login.username.getText();
     private final String login_password = login.password.getText();
 
     public profile() {
         initComponents();
-        this.setLocationRelativeTo(null);
+        setLocationRelativeTo(null);
         Search();
     }
-    
+
     private void db() {
         con = sqlite_connection.connection();
     }
-    
+
     private void close() {
         System.exit(0);
     }
-    
+
     private void minimize() {
         this.setState(JFrame.ICONIFIED);
     }
-    
-    private void Search(){
-        try{
-            String sqlite = "SELECT * FROM `doctor` WHERE `username`='"+login_username+"' and `password`='"+login_password+"'";
-            
+
+    private void Search() {
+        try {
+            String sqlite = "SELECT * FROM `doctor` WHERE `username`='" + login_username + "' and `password`='" + login_password + "'";
+
             db();
             rs = con.prepareStatement(sqlite).executeQuery();
-            if(rs.next()){
+            if (rs.next()) {
                 id.setText(rs.getString("id"));
                 fname.setText(rs.getString("fname"));
                 lname.setText(rs.getString("lname"));
@@ -64,9 +65,9 @@ public class profile extends javax.swing.JFrame {
                 byte[] image = rs.getBytes("img");
                 ImageIcon img;
                 img = new ImageIcon(image);
-                Image im=img.getImage();
-                Image myimg=im.getScaledInstance(imgView.getWidth(), imgView.getHeight(), Image.SCALE_SMOOTH);
-                ImageIcon NewImage=new ImageIcon(myimg);
+                Image im = img.getImage();
+                Image myimg = im.getScaledInstance(imgView.getWidth(), imgView.getHeight(), Image.SCALE_SMOOTH);
+                ImageIcon NewImage = new ImageIcon(myimg);
                 imgView.setIcon(NewImage);
             }
             rs.close();
@@ -75,8 +76,7 @@ public class profile extends javax.swing.JFrame {
             Logger.getLogger(profile.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
-    
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -133,8 +133,8 @@ public class profile extends javax.swing.JFrame {
 
         icon.setBackground(new java.awt.Color(255, 255, 255));
         icon.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        icon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Receptionist/Gender Neutral User_50px.png"))); // NOI18N
-        mainLayout.add(icon, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 32, 60, 60));
+        icon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/drawable/neutral_user_ico.png"))); // NOI18N
+        mainLayout.add(icon, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, 60, 50));
 
         crossoverPanel.setBackground(new java.awt.Color(32, 178, 170));
         crossoverPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -147,7 +147,7 @@ public class profile extends javax.swing.JFrame {
 
         homeBtn.setBackground(new java.awt.Color(32, 178, 170));
         homeBtn.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        homeBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/Home_25px.png"))); // NOI18N
+        homeBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/drawable/home_ico.png"))); // NOI18N
         homeBtn.setToolTipText("Home");
         homeBtn.setOpaque(true);
         homeBtn.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -165,7 +165,7 @@ public class profile extends javax.swing.JFrame {
 
         logoutBtn.setBackground(new java.awt.Color(32, 178, 170));
         logoutBtn.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        logoutBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/Export_25px.png"))); // NOI18N
+        logoutBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/drawable/logout_ico_01.png"))); // NOI18N
         logoutBtn.setToolTipText("Logout");
         logoutBtn.setOpaque(true);
         logoutBtn.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -185,7 +185,7 @@ public class profile extends javax.swing.JFrame {
 
         closeBtn.setBackground(new java.awt.Color(255, 255, 255));
         closeBtn.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        closeBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/icons80x/Multiply_30px.png"))); // NOI18N
+        closeBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/drawable/close_ico_02.png"))); // NOI18N
         closeBtn.setOpaque(true);
         closeBtn.setPreferredSize(new java.awt.Dimension(1300, 700));
         closeBtn.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -361,9 +361,9 @@ public class profile extends javax.swing.JFrame {
         id.setBackground(new java.awt.Color(240, 240, 240));
         id.setFont(new java.awt.Font("Segoe UI Semilight", 0, 14)); // NOI18N
         id.setForeground(new java.awt.Color(100, 100, 100));
-        id.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(74, 179, 175)));
+        id.setBorder(null);
         id.setCaretColor(new java.awt.Color(74, 179, 175));
-        mainLayout.add(id, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 110, 420, 30));
+        mainLayout.add(id, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 110, 120, 30));
 
         jLabel11.setBackground(new java.awt.Color(74, 179, 175));
         jLabel11.setFont(new java.awt.Font("Segoe UI Semilight", 0, 14)); // NOI18N
@@ -442,7 +442,7 @@ public class profile extends javax.swing.JFrame {
 
         icon1.setBackground(new java.awt.Color(255, 255, 255));
         icon1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        icon1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/pictures/New Moon_100px_1.png"))); // NOI18N
+        icon1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/drawable/circle_bg_green.png"))); // NOI18N
         mainLayout.add(icon1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 24, 80, 80));
 
         jSeparator2.setBackground(new java.awt.Color(74, 179, 175));
@@ -451,7 +451,7 @@ public class profile extends javax.swing.JFrame {
 
         minimize.setBackground(new java.awt.Color(255, 255, 255));
         minimize.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        minimize.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hms_login/icons/minimize.png"))); // NOI18N
+        minimize.setIcon(new javax.swing.ImageIcon(getClass().getResource("/drawable/minimize.png"))); // NOI18N
         minimize.setOpaque(true);
         minimize.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -467,7 +467,7 @@ public class profile extends javax.swing.JFrame {
         mainLayout.add(minimize, new org.netbeans.lib.awtextra.AbsoluteConstraints(1190, 0, 40, 40));
 
         imgView.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        imgView.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/icons80x/User_100px_1.png"))); // NOI18N
+        imgView.setIcon(new javax.swing.ImageIcon(getClass().getResource("/drawable/default_dp.png"))); // NOI18N
         imgView.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(100, 100, 100)));
         mainLayout.add(imgView, new org.netbeans.lib.awtextra.AbsoluteConstraints(1010, 220, 220, 240));
 
@@ -493,11 +493,11 @@ public class profile extends javax.swing.JFrame {
     }//GEN-LAST:event_homeBtnMouseClicked
 
     private void homeBtnMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_homeBtnMouseEntered
-        homeBtn.setBackground(new Color(64,169,165));
+        homeBtn.setBackground(new Color(64, 169, 165));
     }//GEN-LAST:event_homeBtnMouseEntered
 
     private void homeBtnMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_homeBtnMouseExited
-        homeBtn.setBackground(new Color(32,178,170));
+        homeBtn.setBackground(new Color(32, 178, 170));
     }//GEN-LAST:event_homeBtnMouseExited
 
     private void logoutBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logoutBtnMouseClicked
@@ -506,11 +506,11 @@ public class profile extends javax.swing.JFrame {
     }//GEN-LAST:event_logoutBtnMouseClicked
 
     private void logoutBtnMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logoutBtnMouseEntered
-        logoutBtn.setBackground(new Color(64,169,165));
+        logoutBtn.setBackground(new Color(64, 169, 165));
     }//GEN-LAST:event_logoutBtnMouseEntered
 
     private void logoutBtnMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logoutBtnMouseExited
-        logoutBtn.setBackground(new Color(32,178,170));
+        logoutBtn.setBackground(new Color(32, 178, 170));
     }//GEN-LAST:event_logoutBtnMouseExited
 
     private void closeBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_closeBtnMouseClicked
@@ -518,11 +518,11 @@ public class profile extends javax.swing.JFrame {
     }//GEN-LAST:event_closeBtnMouseClicked
 
     private void closeBtnMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_closeBtnMouseEntered
-        closeBtn.setBackground(new Color(240,240,240));
+        closeBtn.setBackground(new Color(240, 240, 240));
     }//GEN-LAST:event_closeBtnMouseEntered
 
     private void closeBtnMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_closeBtnMouseExited
-        closeBtn.setBackground(new Color(255,255,255));
+        closeBtn.setBackground(new Color(255, 255, 255));
     }//GEN-LAST:event_closeBtnMouseExited
 
     private void minimizeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_minimizeMouseClicked
@@ -530,11 +530,11 @@ public class profile extends javax.swing.JFrame {
     }//GEN-LAST:event_minimizeMouseClicked
 
     private void minimizeMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_minimizeMouseExited
-        minimize.setBackground(new Color(255,255,255));
+        minimize.setBackground(new Color(255, 255, 255));
     }//GEN-LAST:event_minimizeMouseExited
 
     private void minimizeMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_minimizeMouseEntered
-        minimize.setBackground(new Color(240,240,240));
+        minimize.setBackground(new Color(240, 240, 240));
     }//GEN-LAST:event_minimizeMouseEntered
 
     private void edit_profileMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_edit_profileMouseClicked
@@ -549,7 +549,7 @@ public class profile extends javax.swing.JFrame {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
@@ -571,7 +571,8 @@ public class profile extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
+        java.awt.EventQueue.invokeLater(new Runnable()
+        {
             public void run() {
                 new profile().setVisible(true);
             }

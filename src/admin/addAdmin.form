@@ -97,7 +97,7 @@
               <Properties>
                 <Property name="horizontalAlignment" type="int" value="0"/>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/Icons/Hospital 3_35px.png"/>
+                  <Image iconType="3" name="/drawable/logo.png"/>
                 </Property>
               </Properties>
               <Constraints>
@@ -150,7 +150,7 @@
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/Icons/icons80x/Back_25px_3.png"/>
+              <Image iconType="3" name="/drawable/back_ico_01.png"/>
             </Property>
             <Property name="opaque" type="boolean" value="true"/>
           </Properties>
@@ -172,18 +172,18 @@
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/Icons/icons80x/Multiply_30px.png"/>
+              <Image iconType="3" name="/drawable/close_ico_02.png"/>
             </Property>
             <Property name="opaque" type="boolean" value="true"/>
           </Properties>
           <Events>
             <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="closeBtnMouseClicked"/>
-            <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="closeBtnMouseExited"/>
             <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="closeBtnMouseEntered"/>
+            <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="closeBtnMouseExited"/>
           </Events>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="660" y="0" width="40" height="-1"/>
+              <AbsoluteConstraints x="660" y="0" width="40" height="30"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -191,7 +191,7 @@
           <Properties>
             <Property name="horizontalAlignment" type="int" value="0"/>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/Icons/icons80x/Administrator Male_20px_3.png"/>
+              <Image iconType="3" name="/drawable/login_txtfield_ico_01.png"/>
             </Property>
           </Properties>
           <Constraints>
@@ -254,7 +254,7 @@
           <Properties>
             <Property name="horizontalAlignment" type="int" value="0"/>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/Icons/icons80x/Message_25px_1.png"/>
+              <Image iconType="3" name="/drawable/login_email_ico.png"/>
             </Property>
           </Properties>
           <Constraints>
@@ -333,7 +333,7 @@
           <Properties>
             <Property name="horizontalAlignment" type="int" value="0"/>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/Icons/icons80x/Administrator Male_20px_3.png"/>
+              <Image iconType="3" name="/drawable/login_txtfield_ico_01.png"/>
             </Property>
           </Properties>
           <Constraints>
@@ -346,7 +346,7 @@
           <Properties>
             <Property name="horizontalAlignment" type="int" value="0"/>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/Icons/icons80x/Key_20px_1.png"/>
+              <Image iconType="3" name="/drawable/login_pwdfield_ico.png"/>
             </Property>
           </Properties>
           <Constraints>
@@ -455,14 +455,14 @@
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/hms_login/icons/minimize.png"/>
+              <Image iconType="3" name="/drawable/minimize.png"/>
             </Property>
             <Property name="opaque" type="boolean" value="true"/>
           </Properties>
           <Events>
             <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="minimizeMouseClicked"/>
-            <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="minimizeMouseExited"/>
             <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="minimizeMouseEntered"/>
+            <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="minimizeMouseExited"/>
           </Events>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">

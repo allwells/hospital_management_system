@@ -1,90 +1,89 @@
 package Doctor;
 
 import db_class.sqlite_connection;
-import java.sql.DriverManager;
-import javax.swing.JOptionPane;
-import java.sql.Connection;
-import java.sql.ResultSet;
 import java.awt.Color;
 import java.awt.Image;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
+import java.sql.Connection;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
 /**
  *
- * @author Allwell Festus
+ * @author Allwell Onen
  */
-public class editProfile extends javax.swing.JFrame {
-    
+public class editProfile extends javax.swing.JFrame
+{
+
     Connection con;
     ResultSet rs;
-    
+
     private final String login_username = login.username.getText();
     private final String login_password = login.password.getText();
     private String s = null;
 
     public editProfile() {
         initComponents();
-        this.setLocationRelativeTo(null);
+        setLocationRelativeTo(null);
         Search();
     }
-    
+
     private void db() {
         con = sqlite_connection.connection();
     }
-    
+
     private void close() {
         System.exit(0);
     }
-    
+
     private void minimize() {
         this.setState(JFrame.ICONIFIED);
     }
-    
+
     ////////Method To Resize The ImageIcon////////
-    private ImageIcon ResizeImage(String imgPath){
+    private ImageIcon ResizeImage(String imgPath) {
         ImageIcon MyImage = new ImageIcon(imgPath);
         Image img = MyImage.getImage();
-        Image newImage = img.getScaledInstance(imgView.getWidth(), imgView.getHeight(),Image.SCALE_SMOOTH);
+        Image newImage = img.getScaledInstance(imgView.getWidth(), imgView.getHeight(), Image.SCALE_SMOOTH);
         ImageIcon image = new ImageIcon(newImage);
         return image;
     }
-    
+
     private void Browse() {
         JFileChooser fileChooser = new JFileChooser();
         fileChooser.setCurrentDirectory(new File(System.getProperty("user.home")));
-        FileNameExtensionFilter filter = new FileNameExtensionFilter("*.IMAGE", "jpg","gif","png");
+        FileNameExtensionFilter filter = new FileNameExtensionFilter("*.IMAGE", "jpg", "gif", "png");
         fileChooser.addChoosableFileFilter(filter);
         int result = fileChooser.showSaveDialog(null);
-        if(result == JFileChooser.APPROVE_OPTION){
+        if (result == JFileChooser.APPROVE_OPTION) {
             File selectedFile = fileChooser.getSelectedFile();
             String path = selectedFile.getAbsolutePath();
             imgView.setIcon(ResizeImage(path));
             s = path;
-        }
-        else if(result == JFileChooser.CANCEL_OPTION){
+        } else if (result == JFileChooser.CANCEL_OPTION) {
             System.out.println("No Data!");
         }
     }
-    
-    private void Search(){
-        try{
+
+    private void Search() {
+        try {
             String sqlite = "SELECT * FROM `doctor` "
-                    + "WHERE `username`='"+login_username+"' "
-                    + "and `password`='"+login_password+"'";
-            
+                    + "WHERE `username`='" + login_username + "' "
+                    + "and `password`='" + login_password + "'";
+
             db();
             rs = con.prepareStatement(sqlite).executeQuery();
-            if(rs.next()){
+            if (rs.next()) {
                 id.setText(rs.getString("id"));
                 fname.setText(rs.getString("fname"));
                 lname.setText(rs.getString("lname"));
@@ -99,11 +98,11 @@ public class editProfile extends javax.swing.JFrame {
                 department.setSelectedItem(rs.getString("dept"));
                 ward.setText(rs.getString("room"));
                 password.setText(rs.getString("password"));
-                byte[] image=rs.getBytes("img");
-                ImageIcon img =new ImageIcon(image);
-                Image im=img.getImage();
-                Image myimg=im.getScaledInstance(imgView.getWidth(), imgView.getHeight(), Image.SCALE_SMOOTH);
-                ImageIcon NewImage=new ImageIcon(myimg);
+                byte[] image = rs.getBytes("img");
+                ImageIcon img = new ImageIcon(image);
+                Image im = img.getImage();
+                Image myimg = im.getScaledInstance(imgView.getWidth(), imgView.getHeight(), Image.SCALE_SMOOTH);
+                ImageIcon NewImage = new ImageIcon(myimg);
                 imgView.setIcon(NewImage);
             }
             rs.close();
@@ -112,20 +111,20 @@ public class editProfile extends javax.swing.JFrame {
             Logger.getLogger(editProfile.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
+
     private void Save() {
-        try{
+        try {
             InputStream is = new FileInputStream(new File(s));
-            String sqlite = "UPDATE `doctor` SET `id`='"+id.getText()+"',`fname`='"+fname.getText()+
-                    "',`lname`='"+lname.getText()+"',`age`='"+age.getText()+"',`gender`='"+gender.getSelectedItem()+
-                    "',`status`='"+status.getSelectedItem()+"',`date`='"+date.getText()+"',`email`='"+email.getText()+
-                    "',`phone`='"+phone.getText()+"',`blood`='"+blood.getText()+"',`username`='"+username.getText()+
-                    "',`password`='"+password.getText()+"',`dept`='"+department.getSelectedItem()+
-                    "',`room`='"+ward.getText()+"', `img`='"+is+"' WHERE `username`='"+login_username+"' and `password`='"+login_password+"'";
-            
+            String sqlite = "UPDATE `doctor` SET `id`='" + id.getText() + "',`fname`='" + fname.getText()
+                    + "',`lname`='" + lname.getText() + "',`age`='" + age.getText() + "',`gender`='" + gender.getSelectedItem()
+                    + "',`status`='" + status.getSelectedItem() + "',`date`='" + date.getText() + "',`email`='" + email.getText()
+                    + "',`phone`='" + phone.getText() + "',`blood`='" + blood.getText() + "',`username`='" + username.getText()
+                    + "',`password`='" + password.getText() + "',`dept`='" + department.getSelectedItem()
+                    + "',`room`='" + ward.getText() + "', `img`='" + is + "' WHERE `username`='" + login_username + "' and `password`='" + login_password + "'";
+
             db();
             int check = con.prepareStatement(sqlite).executeUpdate();
-            if(check == 1) {
+            if (check == 1) {
                 JOptionPane.showMessageDialog(null, "Saved Successfullly!", "Success", 1);
                 new profile().show();
                 dispose();
@@ -134,7 +133,7 @@ public class editProfile extends javax.swing.JFrame {
             }
             rs.close();
             con.close();
-        } catch (SQLException | FileNotFoundException ex) {
+        } catch (FileNotFoundException | SQLException ex) {
             Logger.getLogger(editProfile.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
@@ -198,8 +197,8 @@ public class editProfile extends javax.swing.JFrame {
 
         icon.setBackground(new java.awt.Color(255, 255, 255));
         icon.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        icon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Receptionist/Edit User Male_50px.png"))); // NOI18N
-        mainLayout.add(icon, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 20, 80, 90));
+        icon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/drawable/edit_user_ico_01.png"))); // NOI18N
+        mainLayout.add(icon, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, 60, 50));
 
         crossoverPanel.setBackground(new java.awt.Color(32, 178, 170));
         crossoverPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -212,7 +211,7 @@ public class editProfile extends javax.swing.JFrame {
 
         homeBtn.setBackground(new java.awt.Color(32, 178, 170));
         homeBtn.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        homeBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/Home_25px.png"))); // NOI18N
+        homeBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/drawable/home_ico.png"))); // NOI18N
         homeBtn.setToolTipText("Home");
         homeBtn.setOpaque(true);
         homeBtn.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -230,7 +229,7 @@ public class editProfile extends javax.swing.JFrame {
 
         logoutBtn.setBackground(new java.awt.Color(32, 178, 170));
         logoutBtn.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        logoutBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/Export_25px.png"))); // NOI18N
+        logoutBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/drawable/logout_ico_01.png"))); // NOI18N
         logoutBtn.setToolTipText("Logout");
         logoutBtn.setOpaque(true);
         logoutBtn.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -250,7 +249,7 @@ public class editProfile extends javax.swing.JFrame {
 
         closeBtn.setBackground(new java.awt.Color(255, 255, 255));
         closeBtn.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        closeBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/icons80x/Multiply_30px.png"))); // NOI18N
+        closeBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/drawable/close_ico_02.png"))); // NOI18N
         closeBtn.setOpaque(true);
         closeBtn.setPreferredSize(new java.awt.Dimension(1300, 700));
         closeBtn.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -508,11 +507,11 @@ public class editProfile extends javax.swing.JFrame {
 
         icon1.setBackground(new java.awt.Color(255, 255, 255));
         icon1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        icon1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/pictures/New Moon_100px_1.png"))); // NOI18N
+        icon1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/drawable/circle_bg_green.png"))); // NOI18N
         mainLayout.add(icon1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 20, 80, 90));
 
         imgView.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        imgView.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/icons80x/User_100px_1.png"))); // NOI18N
+        imgView.setIcon(new javax.swing.ImageIcon(getClass().getResource("/drawable/default_dp.png"))); // NOI18N
         imgView.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(100, 100, 100)));
         imgView.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -523,7 +522,7 @@ public class editProfile extends javax.swing.JFrame {
 
         minimize.setBackground(new java.awt.Color(255, 255, 255));
         minimize.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        minimize.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hms_login/icons/minimize.png"))); // NOI18N
+        minimize.setIcon(new javax.swing.ImageIcon(getClass().getResource("/drawable/minimize.png"))); // NOI18N
         minimize.setOpaque(true);
         minimize.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -587,11 +586,11 @@ public class editProfile extends javax.swing.JFrame {
     }//GEN-LAST:event_homeBtnMouseClicked
 
     private void homeBtnMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_homeBtnMouseEntered
-        homeBtn.setBackground(new Color(64,169,165));
+        homeBtn.setBackground(new Color(64, 169, 165));
     }//GEN-LAST:event_homeBtnMouseEntered
 
     private void homeBtnMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_homeBtnMouseExited
-        homeBtn.setBackground(new Color(32,178,170));
+        homeBtn.setBackground(new Color(32, 178, 170));
     }//GEN-LAST:event_homeBtnMouseExited
 
     private void logoutBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logoutBtnMouseClicked
@@ -600,11 +599,11 @@ public class editProfile extends javax.swing.JFrame {
     }//GEN-LAST:event_logoutBtnMouseClicked
 
     private void logoutBtnMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logoutBtnMouseEntered
-        logoutBtn.setBackground(new Color(64,169,165));
+        logoutBtn.setBackground(new Color(64, 169, 165));
     }//GEN-LAST:event_logoutBtnMouseEntered
 
     private void logoutBtnMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logoutBtnMouseExited
-        logoutBtn.setBackground(new Color(32,178,170));
+        logoutBtn.setBackground(new Color(32, 178, 170));
     }//GEN-LAST:event_logoutBtnMouseExited
 
     private void closeBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_closeBtnMouseClicked
@@ -612,11 +611,11 @@ public class editProfile extends javax.swing.JFrame {
     }//GEN-LAST:event_closeBtnMouseClicked
 
     private void closeBtnMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_closeBtnMouseEntered
-        closeBtn.setBackground(new Color(240,240,240));
+        closeBtn.setBackground(new Color(240, 240, 240));
     }//GEN-LAST:event_closeBtnMouseEntered
 
     private void closeBtnMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_closeBtnMouseExited
-        closeBtn.setBackground(new Color(255,255,255));
+        closeBtn.setBackground(new Color(255, 255, 255));
     }//GEN-LAST:event_closeBtnMouseExited
 
     private void browseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_browseMouseClicked
@@ -628,11 +627,11 @@ public class editProfile extends javax.swing.JFrame {
     }//GEN-LAST:event_minimizeMouseClicked
 
     private void minimizeMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_minimizeMouseExited
-        minimize.setBackground(new Color(255,255,255));
+        minimize.setBackground(new Color(255, 255, 255));
     }//GEN-LAST:event_minimizeMouseExited
 
     private void minimizeMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_minimizeMouseEntered
-        minimize.setBackground(new Color(240,240,240));
+        minimize.setBackground(new Color(240, 240, 240));
     }//GEN-LAST:event_minimizeMouseEntered
 
     private void imgViewMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_imgViewMouseClicked
@@ -640,7 +639,7 @@ public class editProfile extends javax.swing.JFrame {
     }//GEN-LAST:event_imgViewMouseClicked
 
     private void saveMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_saveMouseClicked
-        Save();
+//        Save();
     }//GEN-LAST:event_saveMouseClicked
 
     /**
@@ -650,7 +649,7 @@ public class editProfile extends javax.swing.JFrame {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
@@ -663,7 +662,7 @@ public class editProfile extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(editProfile.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-        
+
         //</editor-fold>
 
         /* Create and display the form */

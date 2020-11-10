@@ -9,12 +9,13 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author Allwell Festus
+ * @author Allwell Onen
  */
-public class login extends javax.swing.JFrame {
-    
-    Connection con=null;
-    PreparedStatement pst=null;
+public class login extends javax.swing.JFrame
+{
+
+    Connection con = null;
+    PreparedStatement pst = null;
 
     /**
      * Creates new form login
@@ -66,7 +67,7 @@ public class login extends javax.swing.JFrame {
         logoPanel.add(logoTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 0, -1, 50));
 
         logo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/Hospital 3_35px.png"))); // NOI18N
+        logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/drawable/logo.png"))); // NOI18N
         logoPanel.add(logo, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 0, 50, 50));
 
         mainLayout.add(logoPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 700, 50));
@@ -85,7 +86,7 @@ public class login extends javax.swing.JFrame {
 
         bckBtn.setBackground(new java.awt.Color(255, 255, 255));
         bckBtn.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        bckBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/icons80x/Back_25px_3.png"))); // NOI18N
+        bckBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/drawable/back_ico_01.png"))); // NOI18N
         bckBtn.setOpaque(true);
         bckBtn.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -102,7 +103,7 @@ public class login extends javax.swing.JFrame {
 
         closeBtn.setBackground(new java.awt.Color(255, 255, 255));
         closeBtn.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        closeBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/icons80x/Multiply_30px.png"))); // NOI18N
+        closeBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/drawable/close_ico_02.png"))); // NOI18N
         closeBtn.setOpaque(true);
         closeBtn.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -118,7 +119,7 @@ public class login extends javax.swing.JFrame {
         mainLayout.add(closeBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 0, 40, 30));
 
         loginIcon.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        loginIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/icons80x/Administrator Male_20px_3.png"))); // NOI18N
+        loginIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/drawable/login_txtfield_ico_01.png"))); // NOI18N
         mainLayout.add(loginIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 190, 30, 30));
 
         username.setBackground(new java.awt.Color(240, 240, 240));
@@ -136,7 +137,7 @@ public class login extends javax.swing.JFrame {
         mainLayout.add(password, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 250, 360, 30));
 
         passwordIcon.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        passwordIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/icons80x/Key_20px_1.png"))); // NOI18N
+        passwordIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/drawable/login_pwdfield_ico.png"))); // NOI18N
         mainLayout.add(passwordIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 250, 30, 30));
 
         loginBtn.setBackground(new java.awt.Color(74, 179, 175));
@@ -201,7 +202,7 @@ public class login extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void bckBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bckBtnMouseClicked
-        new hms_login.login().show();
+        new index.login().show();
         dispose();
     }//GEN-LAST:event_bckBtnMouseClicked
 
@@ -211,26 +212,25 @@ public class login extends javax.swing.JFrame {
 
     private void loginTxtMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_loginTxtMouseClicked
 
-        try{
+        try {
             Class.forName("com.mysql.jdbc.Driver");
-            con=DriverManager.getConnection("jdbc:mysql://localhost:3306/hms","root","");
-            String sql="SELECT * FROM receptionist WHERE username=? and password=?";
-            PreparedStatement pst=con.prepareStatement(sql);
+            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/hms", "root", "");
+            String sql = "SELECT * FROM receptionist WHERE username=? and password=?";
+            PreparedStatement pst = con.prepareStatement(sql);
             pst.setString(1, username.getText());
             pst.setString(2, password.getText());
-            ResultSet rs=pst.executeQuery();
-            if(rs.next()){
-                new recepPortal().show();
+            ResultSet rs = pst.executeQuery();
+            if (rs.next()) {
+                new RecepDashboard().show();
                 dispose();
-            }else
-            {
-                JOptionPane.showMessageDialog(null,"Incorrect input");
+            } else {
+                JOptionPane.showMessageDialog(null, "Incorrect input");
                 username.setText("");
                 password.setText("");
             }
             con.close();
-        }catch(Exception e){
-            JOptionPane.showMessageDialog(null,e);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
         }
     }//GEN-LAST:event_loginTxtMouseClicked
 
@@ -240,7 +240,7 @@ public class login extends javax.swing.JFrame {
     }//GEN-LAST:event_forgotMouseClicked
 
     private void forgotMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_forgotMouseEntered
-        forgot.setForeground(new Color(150,150,150));
+        forgot.setForeground(new Color(150, 150, 150));
     }//GEN-LAST:event_forgotMouseEntered
 
     private void forgotMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_forgotMouseExited
@@ -248,19 +248,19 @@ public class login extends javax.swing.JFrame {
     }//GEN-LAST:event_forgotMouseExited
 
     private void closeBtnMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_closeBtnMouseEntered
-        closeBtn.setBackground(new Color(240,240,240));
+        closeBtn.setBackground(new Color(240, 240, 240));
     }//GEN-LAST:event_closeBtnMouseEntered
 
     private void closeBtnMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_closeBtnMouseExited
-        closeBtn.setBackground(new Color(255,255,255));
+        closeBtn.setBackground(new Color(255, 255, 255));
     }//GEN-LAST:event_closeBtnMouseExited
 
     private void bckBtnMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bckBtnMouseEntered
-        bckBtn.setBackground(new Color(240,240,240));
+        bckBtn.setBackground(new Color(240, 240, 240));
     }//GEN-LAST:event_bckBtnMouseEntered
 
     private void bckBtnMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bckBtnMouseExited
-        bckBtn.setBackground(new Color(255,255,255));
+        bckBtn.setBackground(new Color(255, 255, 255));
     }//GEN-LAST:event_bckBtnMouseExited
 
     /**
@@ -270,7 +270,7 @@ public class login extends javax.swing.JFrame {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
@@ -291,7 +291,8 @@ public class login extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
+        java.awt.EventQueue.invokeLater(new Runnable()
+        {
             public void run() {
                 new login().setVisible(true);
             }

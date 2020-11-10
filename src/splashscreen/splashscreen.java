@@ -7,20 +7,21 @@ import java.util.logging.Logger;
  *
  * @author Allwell Festus
  */
-public class splashscreen extends javax.swing.JFrame {
-    
+public class splashscreen extends javax.swing.JFrame
+{
+
     public splashscreen() {
         initComponents();
         setLocationRelativeTo(null);
     }
-    
+
     private void startsplashscreen() {
         try {
-            for (int i=0; i<=100; i++) {
+            for (int i = 0; i <= 100; i++) {
                 Thread.sleep(200);
-                progress_indicator.setText(Integer.toString(i)+"%");
+                progress_indicator.setText(Integer.toString(i) + "%");
                 progress_bar.setValue(i);
-                
+
                 if (i == 1) {
                     progress_label.setText("Starting. . . ");
                 }
@@ -32,18 +33,16 @@ public class splashscreen extends javax.swing.JFrame {
                 if (i == 70) {
                     progress_label.setText("Loading database. . . ");
                 }
-                
+
                 if (i == 100) {
-                        dispose();
-                        new hms_login.login().show();
+                    dispose();
+                    new index.login().show();
                 }
             }
         } catch (InterruptedException ex) {
             Logger.getLogger(splashscreen.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
-    
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -144,7 +143,7 @@ public class splashscreen extends javax.swing.JFrame {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
@@ -158,7 +157,7 @@ public class splashscreen extends javax.swing.JFrame {
         }
         //</editor-fold>
         //</editor-fold>
-        
+
         //</editor-fold>
         //</editor-fold>
 

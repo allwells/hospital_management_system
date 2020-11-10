@@ -4,45 +4,47 @@ import java.awt.Color;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
-import javax.swing.JOptionPane;
 import java.sql.ResultSet;
+import javax.swing.JOptionPane;
 
 /**
  *
- * @author Allwell Festus
+ * @author Allwell Onen
  */
-public class forgotPassword extends javax.swing.JFrame {
-    Connection con=null;
-    PreparedStatement pst=null;
+public class forgotPassword extends javax.swing.JFrame
+{
+
+    Connection con = null;
+    PreparedStatement pst = null;
     ResultSet rs;
 
     /**
-     * Creates new form register
+     * Creates new form forgotPassword
      */
     public forgotPassword() {
         initComponents();
         setLocationRelativeTo(null);
     }
-    
-    public void Search(){
-        try{
-            String query="SELECT * FROM `receptionist` WHERE email='"+email.getText()+"'";
-            con=DriverManager.getConnection("jdbc:mysql://localhost:3306/hms","root","");
-            pst=con.prepareStatement(query);
-            rs=pst.executeQuery();
-            if(rs.next()){
+
+    public void Search() {
+        try {
+            String query = "SELECT * FROM `receptionist` WHERE email='" + email.getText() + "'";
+            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/hms", "root", "");
+            pst = con.prepareStatement(query);
+            rs = pst.executeQuery();
+            if (rs.next()) {
 //                msg.username.setText(rs.getString("Username"));
 //                msg.password.setText(rs.getString("Password"));
 //                new messageDialogBox().show();
-                JOptionPane.showMessageDialog(null, "Below are your login details \n\n"+"Username: "+rs.getString("Username")+"\n"+"Password:  "+rs.getString("Password"));
+                JOptionPane.showMessageDialog(null, "Below are your login details \n\n" + "Username: " + rs.getString("Username") + "\n" + "Password:  " + rs.getString("Password"));
                 new login().show();
                 dispose();
                 //password.setText(rs.getString("Password"));
-            }else{
+            } else {
                 JOptionPane.showMessageDialog(null, "Data not found!");
             }
-            
-        }catch(Exception e){
+
+        } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e.toString());
         }
     }
@@ -85,7 +87,7 @@ public class forgotPassword extends javax.swing.JFrame {
         logoPanel.add(logoTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 0, -1, 50));
 
         logo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/Hospital 3_35px.png"))); // NOI18N
+        logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/drawable/logo.png"))); // NOI18N
         logoPanel.add(logo, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 0, 50, 50));
 
         mainLayout.add(logoPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 700, 50));
@@ -103,7 +105,7 @@ public class forgotPassword extends javax.swing.JFrame {
 
         bckBtn.setBackground(new java.awt.Color(255, 255, 255));
         bckBtn.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        bckBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/icons80x/Back_25px_3.png"))); // NOI18N
+        bckBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/drawable/back_ico_01.png"))); // NOI18N
         bckBtn.setOpaque(true);
         bckBtn.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -120,7 +122,7 @@ public class forgotPassword extends javax.swing.JFrame {
 
         closeBtn.setBackground(new java.awt.Color(255, 255, 255));
         closeBtn.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        closeBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/icons80x/Multiply_30px.png"))); // NOI18N
+        closeBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/drawable/close_ico_02.png"))); // NOI18N
         closeBtn.setOpaque(true);
         closeBtn.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -133,7 +135,7 @@ public class forgotPassword extends javax.swing.JFrame {
                 closeBtnMouseExited(evt);
             }
         });
-        mainLayout.add(closeBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 0, 30, -1));
+        mainLayout.add(closeBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 0, 30, 30));
 
         loginIcon.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
         loginIcon.setForeground(new java.awt.Color(32, 178, 170));
@@ -196,7 +198,7 @@ public class forgotPassword extends javax.swing.JFrame {
     }//GEN-LAST:event_bckBtnMouseEntered
 
     private void bckBtnMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bckBtnMouseExited
-        bckBtn.setBackground(new Color(255,255,255));
+        bckBtn.setBackground(new Color(255, 255, 255));
     }//GEN-LAST:event_bckBtnMouseExited
 
     private void closeBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_closeBtnMouseClicked
@@ -208,7 +210,7 @@ public class forgotPassword extends javax.swing.JFrame {
     }//GEN-LAST:event_closeBtnMouseEntered
 
     private void closeBtnMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_closeBtnMouseExited
-        closeBtn.setBackground(new Color(255,255,255));
+        closeBtn.setBackground(new Color(255, 255, 255));
     }//GEN-LAST:event_closeBtnMouseExited
 
     private void searchMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_searchMouseClicked
@@ -222,7 +224,7 @@ public class forgotPassword extends javax.swing.JFrame {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
@@ -244,7 +246,8 @@ public class forgotPassword extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
+        java.awt.EventQueue.invokeLater(new Runnable()
+        {
             public void run() {
                 new forgotPassword().setVisible(true);
             }

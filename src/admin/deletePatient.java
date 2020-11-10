@@ -309,7 +309,7 @@ public class deletePatient extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void homeBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_homeBtnMouseClicked
-        new adminPortal().show();
+        new adminDashboard().show();
         dispose();
     }//GEN-LAST:event_homeBtnMouseClicked
 

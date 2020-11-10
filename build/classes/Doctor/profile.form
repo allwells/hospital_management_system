@@ -65,12 +65,12 @@
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/Receptionist/Gender Neutral User_50px.png"/>
+              <Image iconType="3" name="/drawable/neutral_user_ico.png"/>
             </Property>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="10" y="32" width="60" height="60"/>
+              <AbsoluteConstraints x="10" y="40" width="60" height="50"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -114,7 +114,7 @@
                 </Property>
                 <Property name="horizontalAlignment" type="int" value="0"/>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/Icons/Home_25px.png"/>
+                  <Image iconType="3" name="/drawable/home_ico.png"/>
                 </Property>
                 <Property name="toolTipText" type="java.lang.String" value="Home"/>
                 <Property name="opaque" type="boolean" value="true"/>
@@ -137,7 +137,7 @@
                 </Property>
                 <Property name="horizontalAlignment" type="int" value="0"/>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/Icons/Export_25px.png"/>
+                  <Image iconType="3" name="/drawable/logout_ico_01.png"/>
                 </Property>
                 <Property name="toolTipText" type="java.lang.String" value="Logout"/>
                 <Property name="opaque" type="boolean" value="true"/>
@@ -162,7 +162,7 @@
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/Icons/icons80x/Multiply_30px.png"/>
+              <Image iconType="3" name="/drawable/close_ico_02.png"/>
             </Property>
             <Property name="opaque" type="boolean" value="true"/>
             <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
@@ -626,11 +626,7 @@
               <Color blue="64" green="64" red="64" type="rgb"/>
             </Property>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-              <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
-                <LineBorder>
-                  <Color PropertyName="color" blue="af" green="b3" red="4a" type="rgb"/>
-                </LineBorder>
-              </Border>
+              <Border info="null"/>
             </Property>
             <Property name="caretColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="af" green="b3" red="4a" type="rgb"/>
@@ -638,7 +634,7 @@
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="90" y="110" width="420" height="30"/>
+              <AbsoluteConstraints x="90" y="110" width="120" height="30"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -850,7 +846,7 @@
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/Icons/pictures/New Moon_100px_1.png"/>
+              <Image iconType="3" name="/drawable/circle_bg_green.png"/>
             </Property>
           </Properties>
           <Constraints>
@@ -881,7 +877,7 @@
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/hms_login/icons/minimize.png"/>
+              <Image iconType="3" name="/drawable/minimize.png"/>
             </Property>
             <Property name="opaque" type="boolean" value="true"/>
           </Properties>
@@ -900,7 +896,7 @@
           <Properties>
             <Property name="horizontalAlignment" type="int" value="0"/>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/Icons/icons80x/User_100px_1.png"/>
+              <Image iconType="3" name="/drawable/default_dp.png"/>
             </Property>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">

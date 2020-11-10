@@ -60,12 +60,12 @@
           <Properties>
             <Property name="horizontalAlignment" type="int" value="0"/>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/Receptionist/Add User Male_50px.png"/>
+              <Image iconType="3" name="/drawable/add_user_ico.png"/>
             </Property>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="0" y="30" width="70" height="70"/>
+              <AbsoluteConstraints x="10" y="40" width="50" height="50"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -94,7 +94,7 @@
           <Properties>
             <Property name="horizontalAlignment" type="int" value="0"/>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/Icons/pictures/New Moon_100px_1.png"/>
+              <Image iconType="3" name="/drawable/circle_bg_green.png"/>
             </Property>
           </Properties>
           <Constraints>
@@ -110,7 +110,7 @@
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/Icons/icons80x/Multiply_30px.png"/>
+              <Image iconType="3" name="/drawable/close_ico_02.png"/>
             </Property>
             <Property name="opaque" type="boolean" value="true"/>
           </Properties>
@@ -132,7 +132,7 @@
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/hms_login/icons/minimize.png"/>
+              <Image iconType="3" name="/drawable/minimize.png"/>
             </Property>
             <Property name="opaque" type="boolean" value="true"/>
           </Properties>
@@ -214,7 +214,7 @@
                 </Property>
                 <Property name="horizontalAlignment" type="int" value="0"/>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/Icons/Home_25px.png"/>
+                  <Image iconType="3" name="/drawable/home_ico.png"/>
                 </Property>
                 <Property name="toolTipText" type="java.lang.String" value=""/>
                 <Property name="opaque" type="boolean" value="true"/>
@@ -237,7 +237,7 @@
                 </Property>
                 <Property name="horizontalAlignment" type="int" value="0"/>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/Icons/Export_25px.png"/>
+                  <Image iconType="3" name="/drawable/logout_ico_01.png"/>
                 </Property>
                 <Property name="toolTipText" type="java.lang.String" value=""/>
                 <Property name="opaque" type="boolean" value="true"/>
@@ -333,7 +333,7 @@
         <Component class="javax.swing.JTextField" name="fname">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+              <Color blue="f3" green="f3" red="f3" type="rgb"/>
             </Property>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI Semilight" size="13" style="0"/>
@@ -342,11 +342,7 @@
               <Color blue="64" green="64" red="64" type="rgb"/>
             </Property>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-              <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
-                <LineBorder>
-                  <Color PropertyName="color" blue="64" green="64" red="64" type="rgb"/>
-                </LineBorder>
-              </Border>
+              <Border info="null"/>
             </Property>
             <Property name="caretColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="af" green="b3" red="4a" type="rgb"/>
@@ -382,7 +378,7 @@
         <Component class="javax.swing.JTextField" name="lname">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+              <Color blue="f3" green="f3" red="f3" type="rgb"/>
             </Property>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI Semilight" size="13" style="0"/>
@@ -392,11 +388,7 @@
             </Property>
             <Property name="horizontalAlignment" type="int" value="2"/>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-              <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
-                <LineBorder>
-                  <Color PropertyName="color" blue="64" green="64" red="64" type="rgb"/>
-                </LineBorder>
-              </Border>
+              <Border info="null"/>
             </Property>
             <Property name="caretColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="af" green="b3" red="4a" type="rgb"/>
@@ -432,7 +424,7 @@
         <Component class="javax.swing.JTextField" name="age">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+              <Color blue="f3" green="f3" red="f3" type="rgb"/>
             </Property>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI Semilight" size="13" style="0"/>
@@ -442,11 +434,7 @@
             </Property>
             <Property name="horizontalAlignment" type="int" value="2"/>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-              <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
-                <LineBorder>
-                  <Color PropertyName="color" blue="64" green="64" red="64" type="rgb"/>
-                </LineBorder>
-              </Border>
+              <Border info="null"/>
             </Property>
             <Property name="caretColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="af" green="b3" red="4a" type="rgb"/>
@@ -482,7 +470,7 @@
         <Component class="javax.swing.JTextField" name="date">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+              <Color blue="f3" green="f3" red="f3" type="rgb"/>
             </Property>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI Semilight" size="13" style="0"/>
@@ -492,11 +480,7 @@
             </Property>
             <Property name="horizontalAlignment" type="int" value="2"/>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-              <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
-                <LineBorder>
-                  <Color PropertyName="color" blue="64" green="64" red="64" type="rgb"/>
-                </LineBorder>
-              </Border>
+              <Border info="null"/>
             </Property>
             <Property name="caretColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="af" green="b3" red="4a" type="rgb"/>
@@ -574,7 +558,7 @@
         <Component class="javax.swing.JTextField" name="phone">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+              <Color blue="f3" green="f3" red="f3" type="rgb"/>
             </Property>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI Semilight" size="13" style="0"/>
@@ -584,11 +568,7 @@
             </Property>
             <Property name="horizontalAlignment" type="int" value="2"/>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-              <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
-                <LineBorder>
-                  <Color PropertyName="color" blue="64" green="64" red="64" type="rgb"/>
-                </LineBorder>
-              </Border>
+              <Border info="null"/>
             </Property>
             <Property name="caretColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="af" green="b3" red="4a" type="rgb"/>
@@ -666,7 +646,7 @@
         <Component class="javax.swing.JTextField" name="blood">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+              <Color blue="f3" green="f3" red="f3" type="rgb"/>
             </Property>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI Semilight" size="13" style="0"/>
@@ -676,11 +656,7 @@
             </Property>
             <Property name="horizontalAlignment" type="int" value="2"/>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-              <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
-                <LineBorder>
-                  <Color PropertyName="color" blue="64" green="64" red="64" type="rgb"/>
-                </LineBorder>
-              </Border>
+              <Border info="null"/>
             </Property>
             <Property name="caretColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="af" green="b3" red="4a" type="rgb"/>
@@ -717,7 +693,7 @@
           <Properties>
             <Property name="editable" type="boolean" value="false"/>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+              <Color blue="f3" green="f3" red="f3" type="rgb"/>
             </Property>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI Semilight" size="13" style="0"/>
@@ -727,11 +703,7 @@
             </Property>
             <Property name="horizontalAlignment" type="int" value="2"/>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-              <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
-                <LineBorder>
-                  <Color PropertyName="color" blue="64" green="64" red="64" type="rgb"/>
-                </LineBorder>
-              </Border>
+              <Border info="null"/>
             </Property>
             <Property name="caretColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="af" green="b3" red="4a" type="rgb"/>
@@ -747,7 +719,7 @@
           <Properties>
             <Property name="horizontalAlignment" type="int" value="0"/>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/Icons/icons80x/User_100px_1.png"/>
+              <Image iconType="3" name="/drawable/default_dp.png"/>
             </Property>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
@@ -766,7 +738,7 @@
         <Component class="javax.swing.JTextField" name="email">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+              <Color blue="f3" green="f3" red="f3" type="rgb"/>
             </Property>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI Semilight" size="13" style="0"/>
@@ -776,11 +748,7 @@
             </Property>
             <Property name="horizontalAlignment" type="int" value="2"/>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-              <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
-                <LineBorder>
-                  <Color PropertyName="color" blue="64" green="64" red="64" type="rgb"/>
-                </LineBorder>
-              </Border>
+              <Border info="null"/>
             </Property>
             <Property name="caretColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="af" green="b3" red="4a" type="rgb"/>
@@ -795,7 +763,7 @@
         <Component class="javax.swing.JComboBox" name="gender">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+              <Color blue="f3" green="f3" red="f3" type="rgb"/>
             </Property>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI Semilight" size="14" style="0"/>
@@ -826,7 +794,7 @@
         <Component class="javax.swing.JComboBox" name="department">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+              <Color blue="f3" green="f3" red="f3" type="rgb"/>
             </Property>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI Semilight" size="14" style="0"/>
@@ -955,9 +923,8 @@
         </Component>
         <Component class="javax.swing.JTextField" name="password">
           <Properties>
-            <Property name="editable" type="boolean" value="false"/>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+              <Color blue="f3" green="f3" red="f3" type="rgb"/>
             </Property>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI Semilight" size="13" style="0"/>
@@ -967,11 +934,7 @@
             </Property>
             <Property name="horizontalAlignment" type="int" value="2"/>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-              <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
-                <LineBorder>
-                  <Color PropertyName="color" blue="64" green="64" red="64" type="rgb"/>
-                </LineBorder>
-              </Border>
+              <Border info="null"/>
             </Property>
             <Property name="caretColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="af" green="b3" red="4a" type="rgb"/>
@@ -1007,7 +970,7 @@
         <Component class="javax.swing.JComboBox" name="status">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+              <Color blue="f3" green="f3" red="f3" type="rgb"/>
             </Property>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI Semilight" size="14" style="0"/>
@@ -1039,7 +1002,7 @@
         <Component class="javax.swing.JTextField" name="room">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+              <Color blue="f3" green="f3" red="f3" type="rgb"/>
             </Property>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI Semilight" size="13" style="0"/>
@@ -1049,11 +1012,7 @@
             </Property>
             <Property name="horizontalAlignment" type="int" value="2"/>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-              <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
-                <LineBorder>
-                  <Color PropertyName="color" blue="64" green="64" red="64" type="rgb"/>
-                </LineBorder>
-              </Border>
+              <Border info="null"/>
             </Property>
             <Property name="caretColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="af" green="b3" red="4a" type="rgb"/>

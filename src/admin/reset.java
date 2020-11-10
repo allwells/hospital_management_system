@@ -60,7 +60,7 @@ public class reset extends javax.swing.JFrame {
                         int check = con.prepareStatement(sqlite).executeUpdate();
                         if(check == 1) {
                             JOptionPane.showMessageDialog(null, "Reset successfully!", "Success", 1);
-                            new adminPortal().show();
+                            new adminDashboard().show();
                             dispose();
                         }
                         con.close();
@@ -266,7 +266,7 @@ public class reset extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void backMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backMouseClicked
-        new adminPortal().show();
+        new adminDashboard().show();
         dispose();
     }//GEN-LAST:event_backMouseClicked
 

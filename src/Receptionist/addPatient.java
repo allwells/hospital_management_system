@@ -1,42 +1,43 @@
 package Receptionist;
 
-import java.util.Random;
 import java.awt.Color;
 import java.awt.Image;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.sql.*;
+import java.util.Random;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 
 /**
  *
- * @author Allwell Festus
+ * @author Allwell Onen
  */
-public class addPatient extends javax.swing.JFrame {
-    Random rand=new Random();
+public class addPatient extends javax.swing.JFrame
+{
+
+    Random rand = new Random();
     Connection con;
     PreparedStatement pst;
     ResultSet rs;
-    JFileChooser choose=new JFileChooser();
-    String filename=null;
-    byte[] pic=null;
+    JFileChooser choose = new JFileChooser();
+    String filename = null;
+    byte[] pic = null;
 
     int rndm;
-    
+
     public addPatient() {
         initComponents();
         setLocationRelativeTo(null);
         RandomNumberGen();
         id.enable(false);
     }
-    
-    
-    public void RandomNumberGen(){
-        rndm=rand.nextInt(992467);
-        id.setText("PAT-"+rndm);
+
+    public void RandomNumberGen() {
+        rndm = rand.nextInt(992467);
+        id.setText("PAT-" + rndm);
     }
 
     /**
@@ -107,7 +108,7 @@ public class addPatient extends javax.swing.JFrame {
 
         closeBtn.setBackground(new java.awt.Color(255, 255, 255));
         closeBtn.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        closeBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/icons80x/Multiply_30px.png"))); // NOI18N
+        closeBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/drawable/close_ico_02.png"))); // NOI18N
         closeBtn.setOpaque(true);
         closeBtn.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -123,8 +124,8 @@ public class addPatient extends javax.swing.JFrame {
         mainLayout.add(closeBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(1330, 0, 40, 40));
 
         icon.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        icon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Receptionist/Add User Male_50px.png"))); // NOI18N
-        mainLayout.add(icon, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 20, 80, 90));
+        icon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/drawable/add_user_ico.png"))); // NOI18N
+        mainLayout.add(icon, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, 60, -1));
 
         crossoverPanel.setBackground(new java.awt.Color(32, 178, 170));
         crossoverPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -137,7 +138,7 @@ public class addPatient extends javax.swing.JFrame {
 
         homeBtn.setBackground(new java.awt.Color(32, 178, 170));
         homeBtn.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        homeBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/Home_25px.png"))); // NOI18N
+        homeBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/drawable/home_ico.png"))); // NOI18N
         homeBtn.setToolTipText("");
         homeBtn.setOpaque(true);
         homeBtn.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -155,7 +156,7 @@ public class addPatient extends javax.swing.JFrame {
 
         logoutBtn.setBackground(new java.awt.Color(32, 178, 170));
         logoutBtn.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        logoutBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/Export_25px.png"))); // NOI18N
+        logoutBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/drawable/logout_ico_01.png"))); // NOI18N
         logoutBtn.setToolTipText("");
         logoutBtn.setOpaque(true);
         logoutBtn.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -173,155 +174,218 @@ public class addPatient extends javax.swing.JFrame {
 
         mainLayout.add(crossoverPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 40, 1310, 50));
 
+        jLabel1.setBackground(new java.awt.Color(32, 178, 170));
         jLabel1.setFont(new java.awt.Font("Segoe UI Semilight", 0, 14)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(32, 178, 170));
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("First Name");
-        mainLayout.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 220, -1, 30));
+        jLabel1.setOpaque(true);
+        mainLayout.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 220, 120, 30));
 
+        fname.setBackground(new java.awt.Color(240, 240, 240));
         fname.setFont(new java.awt.Font("Segoe UI Semilight", 0, 13)); // NOI18N
         fname.setForeground(new java.awt.Color(51, 51, 51));
         fname.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        fname.setBorder(null);
         fname.setCaretColor(new java.awt.Color(32, 178, 170));
-        mainLayout.add(fname, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 220, 260, 30));
+        mainLayout.add(fname, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 220, 260, 30));
 
+        jLabel2.setBackground(new java.awt.Color(32, 178, 170));
         jLabel2.setFont(new java.awt.Font("Segoe UI Semilight", 0, 14)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(32, 178, 170));
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("Last Name");
-        mainLayout.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 220, -1, 30));
+        jLabel2.setOpaque(true);
+        mainLayout.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 220, 120, 30));
 
+        lname.setBackground(new java.awt.Color(240, 240, 240));
         lname.setFont(new java.awt.Font("Segoe UI Semilight", 0, 13)); // NOI18N
         lname.setForeground(new java.awt.Color(51, 51, 51));
         lname.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        lname.setBorder(null);
         lname.setCaretColor(new java.awt.Color(32, 178, 170));
-        mainLayout.add(lname, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 220, 260, 30));
+        mainLayout.add(lname, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 220, 260, 30));
 
+        jLabel3.setBackground(new java.awt.Color(32, 178, 170));
         jLabel3.setFont(new java.awt.Font("Segoe UI Semilight", 0, 14)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(32, 178, 170));
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setText("Age");
-        mainLayout.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 280, -1, 30));
+        jLabel3.setOpaque(true);
+        mainLayout.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 280, 120, 30));
 
+        age.setBackground(new java.awt.Color(240, 240, 240));
         age.setFont(new java.awt.Font("Segoe UI Semilight", 0, 13)); // NOI18N
         age.setForeground(new java.awt.Color(51, 51, 51));
         age.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        age.setBorder(null);
         age.setCaretColor(new java.awt.Color(32, 178, 170));
-        mainLayout.add(age, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 280, 260, 30));
+        mainLayout.add(age, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 280, 260, 30));
 
+        jLabel4.setBackground(new java.awt.Color(32, 178, 170));
         jLabel4.setFont(new java.awt.Font("Segoe UI Semilight", 0, 14)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(32, 178, 170));
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel4.setText("Gender");
-        mainLayout.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 280, -1, 30));
+        jLabel4.setOpaque(true);
+        mainLayout.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 280, 120, 30));
 
+        date.setBackground(new java.awt.Color(240, 240, 240));
         date.setFont(new java.awt.Font("Segoe UI Semilight", 0, 13)); // NOI18N
         date.setForeground(new java.awt.Color(51, 51, 51));
         date.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        date.setBorder(null);
         date.setCaretColor(new java.awt.Color(32, 178, 170));
-        mainLayout.add(date, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 340, 260, 30));
+        mainLayout.add(date, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 340, 260, 30));
 
+        jLabel5.setBackground(new java.awt.Color(32, 178, 170));
         jLabel5.setFont(new java.awt.Font("Segoe UI Semilight", 0, 14)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(32, 178, 170));
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel5.setText("Marital Status");
-        mainLayout.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 340, -1, 30));
+        jLabel5.setOpaque(true);
+        mainLayout.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 340, 120, 30));
 
+        jLabel6.setBackground(new java.awt.Color(32, 178, 170));
         jLabel6.setFont(new java.awt.Font("Segoe UI Semilight", 0, 14)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(32, 178, 170));
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel6.setText("Date");
-        mainLayout.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 340, -1, 30));
+        jLabel6.setOpaque(true);
+        mainLayout.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 340, 120, 30));
 
+        jLabel7.setBackground(new java.awt.Color(32, 178, 170));
         jLabel7.setFont(new java.awt.Font("Segoe UI Semilight", 0, 14)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(32, 178, 170));
+        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel7.setText("Address");
-        mainLayout.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 400, -1, 30));
+        jLabel7.setOpaque(true);
+        mainLayout.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 400, 120, 30));
 
+        address.setBackground(new java.awt.Color(240, 240, 240));
         address.setFont(new java.awt.Font("Segoe UI Semilight", 0, 13)); // NOI18N
         address.setForeground(new java.awt.Color(51, 51, 51));
         address.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        address.setBorder(null);
         address.setCaretColor(new java.awt.Color(32, 178, 170));
-        mainLayout.add(address, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 400, 680, 30));
+        mainLayout.add(address, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 400, 680, 30));
 
+        jLabel8.setBackground(new java.awt.Color(32, 178, 170));
         jLabel8.setFont(new java.awt.Font("Segoe UI Semilight", 0, 14)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(32, 178, 170));
+        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel8.setText("City");
-        mainLayout.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 460, -1, 30));
+        jLabel8.setOpaque(true);
+        mainLayout.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 460, 120, 30));
 
+        jLabel9.setBackground(new java.awt.Color(255, 255, 255));
         jLabel9.setFont(new java.awt.Font("Segoe UI Semilight", 0, 11)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(32, 178, 170));
+        jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel9.setText("(For Indoor Patient Only)");
-        mainLayout.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 590, 130, 30));
+        mainLayout.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 590, 120, 30));
 
+        phone.setBackground(new java.awt.Color(240, 240, 240));
         phone.setFont(new java.awt.Font("Segoe UI Semilight", 0, 13)); // NOI18N
         phone.setForeground(new java.awt.Color(51, 51, 51));
         phone.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        phone.setBorder(null);
         phone.setCaretColor(new java.awt.Color(32, 178, 170));
-        mainLayout.add(phone, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 460, 260, 30));
+        mainLayout.add(phone, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 460, 260, 30));
 
+        jLabel10.setBackground(new java.awt.Color(32, 178, 170));
         jLabel10.setFont(new java.awt.Font("Segoe UI Semilight", 0, 14)); // NOI18N
-        jLabel10.setForeground(new java.awt.Color(32, 178, 170));
+        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel10.setText("Phone No.");
-        mainLayout.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 460, -1, 30));
+        jLabel10.setOpaque(true);
+        mainLayout.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 460, 120, 30));
 
+        jLabel13.setBackground(new java.awt.Color(32, 178, 170));
         jLabel13.setFont(new java.awt.Font("Segoe UI Semilight", 0, 14)); // NOI18N
-        jLabel13.setForeground(new java.awt.Color(32, 178, 170));
+        jLabel13.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel13.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel13.setText("Patient Type");
-        mainLayout.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 520, -1, 30));
+        jLabel13.setOpaque(true);
+        mainLayout.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 520, 120, 30));
 
+        jLabel14.setBackground(new java.awt.Color(32, 178, 170));
         jLabel14.setFont(new java.awt.Font("Segoe UI Semilight", 0, 14)); // NOI18N
-        jLabel14.setForeground(new java.awt.Color(32, 178, 170));
+        jLabel14.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel14.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel14.setText("Ward No.");
-        mainLayout.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 640, -1, 30));
+        jLabel14.setOpaque(true);
+        mainLayout.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 640, 120, 30));
 
+        ward.setBackground(new java.awt.Color(240, 240, 240));
         ward.setFont(new java.awt.Font("Segoe UI Semilight", 0, 13)); // NOI18N
         ward.setForeground(new java.awt.Color(51, 51, 51));
         ward.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        ward.setBorder(null);
         ward.setCaretColor(new java.awt.Color(32, 178, 170));
-        mainLayout.add(ward, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 640, 260, 30));
+        mainLayout.add(ward, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 640, 260, 30));
 
+        jLabel15.setBackground(new java.awt.Color(32, 178, 170));
         jLabel15.setFont(new java.awt.Font("Segoe UI Semilight", 0, 14)); // NOI18N
-        jLabel15.setForeground(new java.awt.Color(32, 178, 170));
+        jLabel15.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel15.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel15.setText("Bed No.");
-        mainLayout.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 640, -1, 30));
+        jLabel15.setOpaque(true);
+        mainLayout.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 640, 120, 30));
 
+        bed.setBackground(new java.awt.Color(240, 240, 240));
         bed.setFont(new java.awt.Font("Segoe UI Semilight", 0, 13)); // NOI18N
         bed.setForeground(new java.awt.Color(51, 51, 51));
         bed.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        bed.setBorder(null);
         bed.setCaretColor(new java.awt.Color(32, 178, 170));
-        mainLayout.add(bed, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 640, 260, 30));
+        mainLayout.add(bed, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 640, 260, 30));
 
         imgView.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        imgView.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/icons80x/User_100px_1.png"))); // NOI18N
+        imgView.setIcon(new javax.swing.ImageIcon(getClass().getResource("/drawable/default_dp.png"))); // NOI18N
         imgView.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(200, 200, 200)));
         mainLayout.add(imgView, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 220, 310, 330));
 
+        city.setBackground(new java.awt.Color(240, 240, 240));
         city.setFont(new java.awt.Font("Segoe UI Semilight", 0, 13)); // NOI18N
         city.setForeground(new java.awt.Color(51, 51, 51));
         city.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        city.setBorder(null);
         city.setCaretColor(new java.awt.Color(32, 178, 170));
-        mainLayout.add(city, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 460, 260, 30));
+        mainLayout.add(city, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 460, 260, 30));
 
+        type.setBackground(new java.awt.Color(240, 240, 240));
         type.setFont(new java.awt.Font("Segoe UI Semilight", 0, 14)); // NOI18N
         type.setForeground(new java.awt.Color(51, 51, 51));
         type.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Indoor", "Outdoor" }));
-        type.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
-        mainLayout.add(type, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 520, 260, 30));
+        type.setBorder(null);
+        mainLayout.add(type, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 520, 260, 30));
 
+        gender.setBackground(new java.awt.Color(240, 240, 240));
         gender.setFont(new java.awt.Font("Segoe UI Semilight", 0, 14)); // NOI18N
         gender.setForeground(new java.awt.Color(51, 51, 51));
         gender.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Male", "Female", "Other" }));
-        gender.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
-        mainLayout.add(gender, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 280, 260, 30));
+        gender.setBorder(null);
+        mainLayout.add(gender, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 280, 260, 30));
 
+        status.setBackground(new java.awt.Color(240, 240, 240));
         status.setFont(new java.awt.Font("Segoe UI Semilight", 0, 14)); // NOI18N
         status.setForeground(new java.awt.Color(51, 51, 51));
         status.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Single", "Married", "Divorced" }));
-        status.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
-        mainLayout.add(status, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 340, 260, 30));
-        mainLayout.add(id, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 120, 260, 30));
+        status.setBorder(null);
+        mainLayout.add(status, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 340, 260, 30));
+        mainLayout.add(id, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 120, 120, 30));
 
+        jLabel11.setBackground(new java.awt.Color(32, 178, 170));
         jLabel11.setFont(new java.awt.Font("Segoe UI Semilight", 0, 14)); // NOI18N
-        jLabel11.setForeground(new java.awt.Color(32, 178, 170));
-        jLabel11.setText("Patient ID");
-        mainLayout.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 130, -1, -1));
+        jLabel11.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel11.setText("ID");
+        jLabel11.setOpaque(true);
+        mainLayout.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 120, 30, 30));
 
-        jSeparator1.setForeground(new java.awt.Color(74, 179, 175));
+        jSeparator1.setBackground(new java.awt.Color(32, 178, 170));
+        jSeparator1.setForeground(new java.awt.Color(32, 178, 170));
         mainLayout.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 690, 1370, 10));
 
         add.setBackground(new java.awt.Color(32, 178, 170));
@@ -336,7 +400,7 @@ public class addPatient extends javax.swing.JFrame {
                 addMouseClicked(evt);
             }
         });
-        mainLayout.add(add, new org.netbeans.lib.awtextra.AbsoluteConstraints(1250, 110, 100, 40));
+        mainLayout.add(add, new org.netbeans.lib.awtextra.AbsoluteConstraints(1190, 120, 80, 30));
 
         path.setFont(new java.awt.Font("Segoe UI Light", 0, 14)); // NOI18N
         path.setForeground(new java.awt.Color(71, 71, 71));
@@ -359,10 +423,11 @@ public class addPatient extends javax.swing.JFrame {
         mainLayout.add(browse, new org.netbeans.lib.awtextra.AbsoluteConstraints(1050, 610, 140, 40));
 
         icon1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        icon1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/pictures/New Moon_100px_1.png"))); // NOI18N
+        icon1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/drawable/circle_bg_green.png"))); // NOI18N
         mainLayout.add(icon1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 20, 80, 90));
 
-        jSeparator2.setForeground(new java.awt.Color(74, 179, 175));
+        jSeparator2.setBackground(new java.awt.Color(32, 178, 170));
+        jSeparator2.setForeground(new java.awt.Color(32, 178, 170));
         mainLayout.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 170, 1370, 10));
 
         getContentPane().add(mainLayout, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1370, 770));
@@ -375,20 +440,20 @@ public class addPatient extends javax.swing.JFrame {
     }//GEN-LAST:event_closeBtnMouseClicked
 
     private void closeBtnMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_closeBtnMouseEntered
-        closeBtn.setBackground(new Color(240,240,240));
+        closeBtn.setBackground(new Color(240, 240, 240));
     }//GEN-LAST:event_closeBtnMouseEntered
 
     private void closeBtnMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_closeBtnMouseExited
-        closeBtn.setBackground(new Color(255,255,255));
+        closeBtn.setBackground(new Color(255, 255, 255));
     }//GEN-LAST:event_closeBtnMouseExited
 
     private void homeBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_homeBtnMouseClicked
-        new recepPortal().show();
+        new RecepDashboard().show();
         dispose();
     }//GEN-LAST:event_homeBtnMouseClicked
 
     private void homeBtnMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_homeBtnMouseEntered
-        homeBtn.setBackground(new Color(64,169,165));
+        homeBtn.setBackground(new Color(64, 169, 165));
     }//GEN-LAST:event_homeBtnMouseEntered
 
     private void homeBtnMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_homeBtnMouseExited
@@ -401,7 +466,7 @@ public class addPatient extends javax.swing.JFrame {
     }//GEN-LAST:event_logoutBtnMouseClicked
 
     private void logoutBtnMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logoutBtnMouseEntered
-        logoutBtn.setBackground(new Color(64,169,165));
+        logoutBtn.setBackground(new Color(64, 169, 165));
     }//GEN-LAST:event_logoutBtnMouseEntered
 
     private void logoutBtnMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logoutBtnMouseExited
@@ -410,30 +475,30 @@ public class addPatient extends javax.swing.JFrame {
 
     private void browseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_browseMouseClicked
         choose.showOpenDialog(null);
-        File f=choose.getSelectedFile();
-        filename=f.getAbsolutePath();
+        File f = choose.getSelectedFile();
+        filename = f.getAbsolutePath();
         path.setText(filename);
-        ImageIcon icon=new ImageIcon(new ImageIcon(filename).getImage().getScaledInstance(imgView.getWidth(),imgView.getHeight(), Image.SCALE_SMOOTH));
+        ImageIcon icon = new ImageIcon(new ImageIcon(filename).getImage().getScaledInstance(imgView.getWidth(), imgView.getHeight(), Image.SCALE_SMOOTH));
         imgView.setIcon(icon);
-        try{
-            File image=new File(filename);
-            FileInputStream file=new FileInputStream(image);
-            ByteArrayOutputStream byt=new ByteArrayOutputStream();
-            byte[] buf=new byte[1024];
-            for(int readNum;(readNum=file.read(buf))!=-1;){
-                byt.write(buf,0,readNum);
+        try {
+            File image = new File(filename);
+            FileInputStream file = new FileInputStream(image);
+            ByteArrayOutputStream byt = new ByteArrayOutputStream();
+            byte[] buf = new byte[1024];
+            for (int readNum; (readNum = file.read(buf)) != -1;) {
+                byt.write(buf, 0, readNum);
             }
-            pic=byt.toByteArray();
-        }catch(Exception e){
+            pic = byt.toByteArray();
+        } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
         }
     }//GEN-LAST:event_browseMouseClicked
 
     private void addMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addMouseClicked
-        try{
-            String query="INSERT INTO `patient`(`Patient_ID`, `First_Name`, `Last_Name`, `Age`, `Gender`, `Marital_Status`, `Date`, `Address`, `City`, `Phone`, `Patient_Type`, `Ward_No.`, `Bed_No.`, `Image`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-            con=DriverManager.getConnection("jdbc:mysql://localhost:3306/hms","root","");
-            pst=con.prepareStatement(query);
+        try {
+            String query = "INSERT INTO `patient`(`Patient_ID`, `First_Name`, `Last_Name`, `Age`, `Gender`, `Marital_Status`, `Date`, `Address`, `City`, `Phone`, `Patient_Type`, `Ward_No.`, `Bed_No.`, `Image`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/hms", "root", "");
+            pst = con.prepareStatement(query);
             pst.setString(1, id.getText());
             pst.setString(2, fname.getText());
             pst.setString(3, lname.getText());
@@ -449,7 +514,7 @@ public class addPatient extends javax.swing.JFrame {
             pst.setString(13, bed.getText());
             pst.setString(14, imgView.getText());
             pst.executeUpdate();
-            JOptionPane.showMessageDialog(null, fname.getText()+" "+lname.getText()+" added successfully!");
+            JOptionPane.showMessageDialog(null, fname.getText() + " " + lname.getText() + " added successfully!");
             fname.setText("");
             lname.setText("");
             age.setText("");
@@ -464,7 +529,7 @@ public class addPatient extends javax.swing.JFrame {
             bed.setText("");
             path.setText("");
             imgView.setText("");
-        }catch(Exception e){
+        } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
         }
 
@@ -477,7 +542,7 @@ public class addPatient extends javax.swing.JFrame {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
@@ -498,7 +563,8 @@ public class addPatient extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
+        java.awt.EventQueue.invokeLater(new Runnable()
+        {
             public void run() {
                 new addPatient().setVisible(true);
             }

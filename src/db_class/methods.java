@@ -1,6 +1,6 @@
 package db_class;
 
-import admin.adminPortal;
+import admin.adminDashboard;
 import java.awt.Image;
 import java.io.File;
 import java.io.FileInputStream;
@@ -76,7 +76,7 @@ public class methods {
             pst.setString(2, password.getText());
             ResultSet rs=pst.executeQuery();
             if(rs.next()){
-                new adminPortal().show();
+                new adminDashboard().show();
                 frame.hide();
             }else
             {

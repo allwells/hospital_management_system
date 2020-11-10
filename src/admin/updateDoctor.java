@@ -674,7 +674,7 @@ public class updateDoctor extends javax.swing.JFrame {
     }//GEN-LAST:event_homeBtnMouseEntered
 
     private void homeBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_homeBtnMouseClicked
-        new adminPortal().show();
+        new adminDashboard().show();
         dispose();
     }//GEN-LAST:event_homeBtnMouseClicked
 

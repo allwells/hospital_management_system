@@ -4,58 +4,58 @@ import db_class.sqlite_connection;
 import java.awt.Color;
 import java.awt.HeadlessException;
 import java.sql.Connection;
-import javax.swing.JOptionPane;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import javax.swing.JOptionPane;
 
 /**
  *
- * @author Allwell Festus
+ * @author Allwell Onen
  */
-public class forgotPassword extends javax.swing.JFrame {
+public class forgotPassword extends javax.swing.JFrame
+{
 
-        Connection con;
-        ResultSet rs;
-        
+    Connection con;
+    ResultSet rs;
+
     public forgotPassword() {
         initComponents();
         setLocationRelativeTo(null);
     }
-    
+
     private void db() {
         con = sqlite_connection.connection();
     }
-    
+
     private void close() {
         System.exit(0);
     }
-    
-    public void Search(){
-        String Email = email.getText();
-        try{
-            String sqlite="SELECT * FROM `doctor` WHERE `email`='"+Email+"'";
-            
+
+    private void Search() {
+        final String Email = email.getText();
+        try {
+            String sqlite = "SELECT * FROM `doctor` WHERE `email`='" + Email + "'";
+
             db();
             rs = con.prepareStatement(sqlite).executeQuery();
-            if(rs.next()){
-                
+            if (rs.next()) {
+
 //                msg.username.setText(rs.getString("Username"));
 //                msg.password.setText(rs.getString("Password"));
 //                new messageDialogBox().show();
-
                 JOptionPane.showMessageDialog(null, "Login details: \n\n"
-                        +"Username: "+rs.getString("Username")+"\n"
-                        +"Password:  "+rs.getString("Password"));
-                
+                        + "Username: " + rs.getString("Username") + "\n"
+                        + "Password:  " + rs.getString("Password"));
+
                 new login().show();
                 dispose();
                 //password.setText(rs.getString("Password"));
-            }else{
+            } else {
                 JOptionPane.showMessageDialog(null, "Data not found!");
             }
             rs.close();
             con.close();
-        }catch(HeadlessException | SQLException e){
+        } catch (HeadlessException | SQLException e) {
             JOptionPane.showMessageDialog(null, e.toString());
         }
     }
@@ -69,12 +69,12 @@ public class forgotPassword extends javax.swing.JFrame {
         logoTxt = new javax.swing.JLabel();
         logo = new javax.swing.JLabel();
         loginPanel = new javax.swing.JPanel();
-        adminLogin = new javax.swing.JLabel();
+        find_password_text = new javax.swing.JLabel();
         bckBtn = new javax.swing.JLabel();
         closeBtn = new javax.swing.JLabel();
-        loginIcon = new javax.swing.JLabel();
+        enter_email_label = new javax.swing.JLabel();
         email = new javax.swing.JTextField();
-        search = new javax.swing.JLabel();
+        search_button = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocationByPlatform(true);
@@ -93,7 +93,7 @@ public class forgotPassword extends javax.swing.JFrame {
         logoPanel.add(logoTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 0, -1, 50));
 
         logo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/Hospital 3_35px.png"))); // NOI18N
+        logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/drawable/logo.png"))); // NOI18N
         logoPanel.add(logo, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 0, 50, 50));
 
         mainLayout.add(logoPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 700, 50));
@@ -101,17 +101,17 @@ public class forgotPassword extends javax.swing.JFrame {
         loginPanel.setBackground(new java.awt.Color(32, 178, 170));
         loginPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        adminLogin.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
-        adminLogin.setForeground(new java.awt.Color(240, 240, 240));
-        adminLogin.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        adminLogin.setText("FIND PASSWORD");
-        loginPanel.add(adminLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 0, 150, 40));
+        find_password_text.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
+        find_password_text.setForeground(new java.awt.Color(240, 240, 240));
+        find_password_text.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        find_password_text.setText("FIND PASSWORD");
+        loginPanel.add(find_password_text, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 0, 150, 40));
 
         mainLayout.add(loginPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 80, 270, 40));
 
         bckBtn.setBackground(new java.awt.Color(255, 255, 255));
         bckBtn.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        bckBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/icons80x/Back_25px_3.png"))); // NOI18N
+        bckBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/drawable/back_ico_01.png"))); // NOI18N
         bckBtn.setOpaque(true);
         bckBtn.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -128,7 +128,7 @@ public class forgotPassword extends javax.swing.JFrame {
 
         closeBtn.setBackground(new java.awt.Color(255, 255, 255));
         closeBtn.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        closeBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/icons80x/Multiply_30px.png"))); // NOI18N
+        closeBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/drawable/close_ico_02.png"))); // NOI18N
         closeBtn.setOpaque(true);
         closeBtn.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -141,13 +141,13 @@ public class forgotPassword extends javax.swing.JFrame {
                 closeBtnMouseExited(evt);
             }
         });
-        mainLayout.add(closeBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 0, 30, -1));
+        mainLayout.add(closeBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 0, 30, 30));
 
-        loginIcon.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
-        loginIcon.setForeground(new java.awt.Color(32, 178, 170));
-        loginIcon.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        loginIcon.setText("Enter Email here");
-        mainLayout.add(loginIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 180, 120, 40));
+        enter_email_label.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
+        enter_email_label.setForeground(new java.awt.Color(32, 178, 170));
+        enter_email_label.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        enter_email_label.setText("Enter Email here");
+        mainLayout.add(enter_email_label, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 180, 120, 40));
 
         email.setBackground(new java.awt.Color(240, 240, 240));
         email.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
@@ -161,18 +161,18 @@ public class forgotPassword extends javax.swing.JFrame {
         });
         mainLayout.add(email, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 220, 380, 40));
 
-        search.setBackground(new java.awt.Color(32, 178, 170));
-        search.setFont(new java.awt.Font("Segoe UI Semibold", 0, 13)); // NOI18N
-        search.setForeground(new java.awt.Color(240, 240, 240));
-        search.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        search.setText("Search");
-        search.setOpaque(true);
-        search.addMouseListener(new java.awt.event.MouseAdapter() {
+        search_button.setBackground(new java.awt.Color(32, 178, 170));
+        search_button.setFont(new java.awt.Font("Segoe UI Semibold", 0, 13)); // NOI18N
+        search_button.setForeground(new java.awt.Color(240, 240, 240));
+        search_button.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        search_button.setText("Search");
+        search_button.setOpaque(true);
+        search_button.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                searchMouseClicked(evt);
+                search_buttonMouseClicked(evt);
             }
         });
-        mainLayout.add(search, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 280, 100, 30));
+        mainLayout.add(search_button, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 280, 100, 30));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -208,7 +208,7 @@ public class forgotPassword extends javax.swing.JFrame {
     }//GEN-LAST:event_bckBtnMouseEntered
 
     private void bckBtnMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bckBtnMouseExited
-        bckBtn.setBackground(new Color(255,255,255));
+        bckBtn.setBackground(new Color(255, 255, 255));
     }//GEN-LAST:event_bckBtnMouseExited
 
     private void closeBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_closeBtnMouseClicked
@@ -220,12 +220,12 @@ public class forgotPassword extends javax.swing.JFrame {
     }//GEN-LAST:event_closeBtnMouseEntered
 
     private void closeBtnMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_closeBtnMouseExited
-        closeBtn.setBackground(new Color(255,255,255));
+        closeBtn.setBackground(new Color(255, 255, 255));
     }//GEN-LAST:event_closeBtnMouseExited
 
-    private void searchMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_searchMouseClicked
+    private void search_buttonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_search_buttonMouseClicked
         Search();
-    }//GEN-LAST:event_searchMouseClicked
+    }//GEN-LAST:event_search_buttonMouseClicked
 
     private void emailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_emailActionPerformed
         Search();
@@ -238,7 +238,7 @@ public class forgotPassword extends javax.swing.JFrame {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
@@ -250,9 +250,9 @@ public class forgotPassword extends javax.swing.JFrame {
         } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(forgotPassword.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-            //</editor-fold>
-            //</editor-fold>
-            
+        //</editor-fold>
+        //</editor-fold>
+
         //</editor-fold>
         //</editor-fold>
 
@@ -263,16 +263,16 @@ public class forgotPassword extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel adminLogin;
     private javax.swing.JLabel bckBtn;
     private javax.swing.JLabel closeBtn;
     private javax.swing.JTextField email;
-    private javax.swing.JLabel loginIcon;
+    private javax.swing.JLabel enter_email_label;
+    private javax.swing.JLabel find_password_text;
     private javax.swing.JPanel loginPanel;
     private javax.swing.JLabel logo;
     private javax.swing.JPanel logoPanel;
     private javax.swing.JLabel logoTxt;
     private javax.swing.JPanel mainLayout;
-    private javax.swing.JLabel search;
+    private javax.swing.JLabel search_button;
     // End of variables declaration//GEN-END:variables
 }

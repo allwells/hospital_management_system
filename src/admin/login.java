@@ -85,7 +85,7 @@ public class login extends javax.swing.JFrame {
             String sql="SELECT * FROM `admin` WHERE `username`='"+username.getText()+"' and `password`='"+password.getText()+"'";
             rs = con.prepareStatement(sql).executeQuery();
             if(rs.next()){
-                new adminPortal().show();
+                new adminDashboard().show();
                 this.hide();
             }else
             {
@@ -302,7 +302,7 @@ public class login extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void bckBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bckBtnMouseClicked
-        new hms_login.login().setVisible(true);
+        new index.login().setVisible(true);
         dispose();
     }//GEN-LAST:event_bckBtnMouseClicked
 

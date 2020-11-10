@@ -11,9 +11,11 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author Allwell Festus
+ * @author Allwell Onen
  */
-public class login extends javax.swing.JFrame {
+public class login extends javax.swing.JFrame
+{
+
     Connection con;
     ResultSet rs;
 
@@ -28,24 +30,24 @@ public class login extends javax.swing.JFrame {
     private void db() {
         con = sqlite_connection.connection();
     }
-    
+
     private void close() {
         System.exit(0);
     }
-    
+
     private void login() {
-        try{
-            String sqlite="SELECT * FROM `doctor` "
-                    + "WHERE `username`='"+username.getText()+"' "
-                    + "and `password`='"+password.getText()+"'";
-            
+        try {
+            String sqlite = "SELECT * FROM `doctor` "
+                    + "WHERE `username`='" + username.getText() + "' "
+                    + "and `password`='" + password.getText() + "'";
+
             db();
             rs = con.prepareStatement(sqlite).executeQuery();
-            if(rs.next()) {
+            if (rs.next()) {
                 new docPortal().show();
                 dispose();
             } else {
-                JOptionPane.showMessageDialog(null,"Incorrect input");
+                JOptionPane.showMessageDialog(null, "Incorrect input");
                 username.setText("");
                 password.setText("");
             }
@@ -55,6 +57,7 @@ public class login extends javax.swing.JFrame {
             Logger.getLogger(login.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -64,7 +67,7 @@ public class login extends javax.swing.JFrame {
         logoTxt = new javax.swing.JLabel();
         logo = new javax.swing.JLabel();
         loginPanel = new javax.swing.JPanel();
-        adminLogin = new javax.swing.JLabel();
+        doc_login_label = new javax.swing.JLabel();
         bckBtn = new javax.swing.JLabel();
         closeBtn = new javax.swing.JLabel();
         loginIcon = new javax.swing.JLabel();
@@ -91,7 +94,7 @@ public class login extends javax.swing.JFrame {
         logoPanel.add(logoTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 0, -1, 50));
 
         logo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/Hospital 3_35px.png"))); // NOI18N
+        logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/drawable/logo.png"))); // NOI18N
         logoPanel.add(logo, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 0, 50, 50));
 
         mainLayout.add(logoPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 700, 50));
@@ -99,17 +102,17 @@ public class login extends javax.swing.JFrame {
         loginPanel.setBackground(new java.awt.Color(32, 178, 170));
         loginPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        adminLogin.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
-        adminLogin.setForeground(new java.awt.Color(240, 240, 240));
-        adminLogin.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        adminLogin.setText("DOCTOR LOGIN PANEL");
-        loginPanel.add(adminLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 0, 190, 40));
+        doc_login_label.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
+        doc_login_label.setForeground(new java.awt.Color(240, 240, 240));
+        doc_login_label.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        doc_login_label.setText("DOCTOR LOGIN PANEL");
+        loginPanel.add(doc_login_label, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 0, 190, 40));
 
         mainLayout.add(loginPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 80, 270, 40));
 
         bckBtn.setBackground(new java.awt.Color(255, 255, 255));
         bckBtn.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        bckBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/icons80x/Back_25px_3.png"))); // NOI18N
+        bckBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/drawable/back_ico_01.png"))); // NOI18N
         bckBtn.setOpaque(true);
         bckBtn.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -126,7 +129,7 @@ public class login extends javax.swing.JFrame {
 
         closeBtn.setBackground(new java.awt.Color(255, 255, 255));
         closeBtn.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        closeBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/icons80x/Multiply_30px.png"))); // NOI18N
+        closeBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/drawable/close_ico_02.png"))); // NOI18N
         closeBtn.setOpaque(true);
         closeBtn.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -139,10 +142,10 @@ public class login extends javax.swing.JFrame {
                 closeBtnMouseExited(evt);
             }
         });
-        mainLayout.add(closeBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 0, 40, -1));
+        mainLayout.add(closeBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 0, 30, 30));
 
         loginIcon.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        loginIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/icons80x/Administrator Male_20px_3.png"))); // NOI18N
+        loginIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/drawable/login_txtfield_ico_01.png"))); // NOI18N
         mainLayout.add(loginIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 170, 30, 30));
 
         username.setBackground(new java.awt.Color(240, 240, 240));
@@ -162,7 +165,7 @@ public class login extends javax.swing.JFrame {
         mainLayout.add(password, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 240, 360, 30));
 
         passwordIcon.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        passwordIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/icons80x/Key_20px_1.png"))); // NOI18N
+        passwordIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/drawable/login_pwdfield_ico.png"))); // NOI18N
         mainLayout.add(passwordIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 240, 30, 30));
 
         forgot.setFont(new java.awt.Font("Segoe UI Semibold", 0, 12)); // NOI18N
@@ -222,16 +225,16 @@ public class login extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void bckBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bckBtnMouseClicked
-        new hms_login.login().show();
+        new index.login().show();
         dispose();
     }//GEN-LAST:event_bckBtnMouseClicked
 
     private void bckBtnMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bckBtnMouseEntered
-        bckBtn.setBackground(new Color(240,240,240));
+        bckBtn.setBackground(new Color(240, 240, 240));
     }//GEN-LAST:event_bckBtnMouseEntered
 
     private void bckBtnMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bckBtnMouseExited
-        bckBtn.setBackground(new Color(255,255,255));
+        bckBtn.setBackground(new Color(255, 255, 255));
     }//GEN-LAST:event_bckBtnMouseExited
 
     private void closeBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_closeBtnMouseClicked
@@ -239,11 +242,11 @@ public class login extends javax.swing.JFrame {
     }//GEN-LAST:event_closeBtnMouseClicked
 
     private void closeBtnMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_closeBtnMouseEntered
-        closeBtn.setBackground(new Color(240,240,240));
+        closeBtn.setBackground(new Color(240, 240, 240));
     }//GEN-LAST:event_closeBtnMouseEntered
 
     private void closeBtnMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_closeBtnMouseExited
-        closeBtn.setBackground(new Color(255,255,255));
+        closeBtn.setBackground(new Color(255, 255, 255));
     }//GEN-LAST:event_closeBtnMouseExited
 
     private void forgotMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_forgotMouseClicked
@@ -252,11 +255,11 @@ public class login extends javax.swing.JFrame {
     }//GEN-LAST:event_forgotMouseClicked
 
     private void forgotMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_forgotMouseEntered
-        forgot.setForeground(new Color(150,150,150));
+        forgot.setForeground(new Color(150, 150, 150));
     }//GEN-LAST:event_forgotMouseEntered
 
     private void forgotMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_forgotMouseExited
-        forgot.setForeground(new Color(74,179,175));
+        forgot.setForeground(new Color(74, 179, 175));
     }//GEN-LAST:event_forgotMouseExited
 
     private void loginTxtMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_loginTxtMouseClicked
@@ -270,7 +273,7 @@ public class login extends javax.swing.JFrame {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
@@ -292,7 +295,8 @@ public class login extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
+        java.awt.EventQueue.invokeLater(new Runnable()
+        {
             public void run() {
                 new login().setVisible(true);
             }
@@ -300,9 +304,9 @@ public class login extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel adminLogin;
     private javax.swing.JLabel bckBtn;
     private javax.swing.JLabel closeBtn;
+    private javax.swing.JLabel doc_login_label;
     private javax.swing.JLabel forgot;
     private javax.swing.JLabel loginIcon;
     private javax.swing.JPanel loginPanel;

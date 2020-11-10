@@ -15,10 +15,11 @@ import net.proteanit.sql.DbUtils;
  *
  * @author Allwell Festus
  */
-public class appointment extends javax.swing.JFrame {
-    
-        Connection con;
-        ResultSet rs;      
+public class appointment extends javax.swing.JFrame
+{
+
+    Connection con;
+    ResultSet rs;
 
     public appointment() {
         initComponents();
@@ -26,29 +27,29 @@ public class appointment extends javax.swing.JFrame {
         search.setText("Search with full name");
         Select();
     }
-    
+
     private void db() {
         con = sqlite_connection.connection();
     }
-    
+
     private void close() {
         System.exit(0);
     }
-    
+
     private void minimize() {
         this.setState(JFrame.ICONIFIED);
     }
-    
+
     private void Focus(String get, String set) {
-        if(search.getText().equals(get)) {
+        if (search.getText().equals(get)) {
             search.setText(set);
         }
     }
-    
-    private void Select(){
-        try{
+
+    private void Select() {
+        try {
             String sqlite = "SELECT * FROM `appointment`";
-            
+
             db();
             rs = con.prepareStatement(sqlite).executeQuery();
             if (rs.next()) {
@@ -56,27 +57,27 @@ public class appointment extends javax.swing.JFrame {
             }
             rs.close();
             con.close();
-        }catch(SQLException e){
+        } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, e.toString());
         }
     }
-    
-    private void Search(){
-        try{
-            String sqlite = "SELECT * FROM `appointment` WHERE `name_of_doc`='"+search.getText()+"'";
-            
+
+    private void Search() {
+        try {
+            String sqlite = "SELECT * FROM `appointment` WHERE `name_of_doc`='" + search.getText() + "'";
+
             db();
-            rs = con.prepareStatement(sqlite).executeQuery();          
-            if(rs.next()){
-              table.setModel(DbUtils.resultSetToTableModel(rs));
+            rs = con.prepareStatement(sqlite).executeQuery();
+            if (rs.next()) {
+                table.setModel(DbUtils.resultSetToTableModel(rs));
             } else {
-                JOptionPane.showMessageDialog(null, "No appointment found for "+search.getText());
+                JOptionPane.showMessageDialog(null, "No appointment found for " + search.getText());
             }
             rs.close();
             con.close();
-        }   catch (SQLException ex) {
-                Logger.getLogger(appointment.class.getName()).log(Level.SEVERE, null, ex);
-            }
+        } catch (SQLException ex) {
+            Logger.getLogger(appointment.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     @SuppressWarnings("unchecked")
@@ -109,12 +110,12 @@ public class appointment extends javax.swing.JFrame {
         mainLayout.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         icon1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        icon1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Receptionist/Calendar_50px_2.png"))); // NOI18N
+        icon1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/drawable/Calendar_50px_2.png"))); // NOI18N
         mainLayout.add(icon1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 80, 70));
 
         closeBtn.setBackground(new java.awt.Color(255, 255, 255));
         closeBtn.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        closeBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/icons80x/Multiply_30px.png"))); // NOI18N
+        closeBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/drawable/close.png"))); // NOI18N
         closeBtn.setOpaque(true);
         closeBtn.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -130,7 +131,7 @@ public class appointment extends javax.swing.JFrame {
         mainLayout.add(closeBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(1230, 0, 40, 40));
 
         icon.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        icon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/pictures/New Moon_100px_1.png"))); // NOI18N
+        icon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/drawable/circle_bg_green.png"))); // NOI18N
         mainLayout.add(icon, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 20, 80, 90));
 
         crossoverPanel.setBackground(new java.awt.Color(32, 178, 170));
@@ -258,7 +259,7 @@ public class appointment extends javax.swing.JFrame {
 
         minimize.setBackground(new java.awt.Color(255, 255, 255));
         minimize.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        minimize.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hms_login/icons/minimize.png"))); // NOI18N
+        minimize.setIcon(new javax.swing.ImageIcon(getClass().getResource("/drawable/minimize.png"))); // NOI18N
         minimize.setOpaque(true);
         minimize.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -294,11 +295,11 @@ public class appointment extends javax.swing.JFrame {
     }//GEN-LAST:event_closeBtnMouseClicked
 
     private void closeBtnMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_closeBtnMouseEntered
-        closeBtn.setBackground(new Color(240,240,240));
+        closeBtn.setBackground(new Color(240, 240, 240));
     }//GEN-LAST:event_closeBtnMouseEntered
 
     private void closeBtnMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_closeBtnMouseExited
-        closeBtn.setBackground(new Color(255,255,255));
+        closeBtn.setBackground(new Color(255, 255, 255));
     }//GEN-LAST:event_closeBtnMouseExited
 
     private void homeBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_homeBtnMouseClicked
@@ -307,11 +308,11 @@ public class appointment extends javax.swing.JFrame {
     }//GEN-LAST:event_homeBtnMouseClicked
 
     private void homeBtnMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_homeBtnMouseEntered
-        homeBtn.setBackground(new Color(64,169,165));
+        homeBtn.setBackground(new Color(64, 169, 165));
     }//GEN-LAST:event_homeBtnMouseEntered
 
     private void homeBtnMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_homeBtnMouseExited
-        homeBtn.setBackground(new Color(74,179,175));
+        homeBtn.setBackground(new Color(74, 179, 175));
     }//GEN-LAST:event_homeBtnMouseExited
 
     private void logoutBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logoutBtnMouseClicked
@@ -320,11 +321,11 @@ public class appointment extends javax.swing.JFrame {
     }//GEN-LAST:event_logoutBtnMouseClicked
 
     private void logoutBtnMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logoutBtnMouseEntered
-        logoutBtn.setBackground(new Color(64,169,165));
+        logoutBtn.setBackground(new Color(64, 169, 165));
     }//GEN-LAST:event_logoutBtnMouseEntered
 
     private void logoutBtnMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logoutBtnMouseExited
-        logoutBtn.setBackground(new Color(74,179,175));
+        logoutBtn.setBackground(new Color(74, 179, 175));
     }//GEN-LAST:event_logoutBtnMouseExited
 
     private void backMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backMousePressed
@@ -337,11 +338,11 @@ public class appointment extends javax.swing.JFrame {
     }//GEN-LAST:event_minimizeMouseClicked
 
     private void minimizeMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_minimizeMouseEntered
-        minimize.setBackground(new Color(240,240,240));
+        minimize.setBackground(new Color(240, 240, 240));
     }//GEN-LAST:event_minimizeMouseEntered
 
     private void minimizeMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_minimizeMouseExited
-        minimize.setBackground(new Color(255,255,255));
+        minimize.setBackground(new Color(255, 255, 255));
     }//GEN-LAST:event_minimizeMouseExited
 
     private void searchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchActionPerformed
@@ -349,11 +350,11 @@ public class appointment extends javax.swing.JFrame {
     }//GEN-LAST:event_searchActionPerformed
 
     private void searchFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_searchFocusGained
-        Focus("Search with full name","");
+        Focus("Search with full name", "");
     }//GEN-LAST:event_searchFocusGained
 
     private void searchFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_searchFocusLost
-        Focus("","Search with full name");
+        Focus("", "Search with full name");
     }//GEN-LAST:event_searchFocusLost
 
     private void search_buttonMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_search_buttonMousePressed
@@ -367,7 +368,7 @@ public class appointment extends javax.swing.JFrame {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
@@ -379,8 +380,8 @@ public class appointment extends javax.swing.JFrame {
         } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(appointment.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-            //</editor-fold>
-            
+        //</editor-fold>
+
         //</editor-fold>
 
         /* Create and display the form */

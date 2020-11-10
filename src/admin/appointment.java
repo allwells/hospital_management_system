@@ -398,7 +398,7 @@ public class appointment extends javax.swing.JFrame {
     }//GEN-LAST:event_closeBtnMouseExited
 
     private void homeBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_homeBtnMouseClicked
-        new adminPortal().show();
+        new adminDashboard().show();
         dispose();
     }//GEN-LAST:event_homeBtnMouseClicked
 
@@ -453,7 +453,7 @@ public class appointment extends javax.swing.JFrame {
     }//GEN-LAST:event_view_appointmentMouseExited
 
     private void backMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backMousePressed
-        new adminPortal().show();
+        new adminDashboard().show();
         dispose();
     }//GEN-LAST:event_backMousePressed
 

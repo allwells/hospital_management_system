@@ -97,7 +97,7 @@
               <Properties>
                 <Property name="horizontalAlignment" type="int" value="0"/>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/Icons/Hospital 3_35px.png"/>
+                  <Image iconType="3" name="/drawable/logo.png"/>
                 </Property>
               </Properties>
               <Constraints>
@@ -153,7 +153,7 @@
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/Icons/icons80x/Back_25px_3.png"/>
+              <Image iconType="3" name="/drawable/back_ico_01.png"/>
             </Property>
             <Property name="opaque" type="boolean" value="true"/>
           </Properties>
@@ -175,7 +175,7 @@
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/Icons/icons80x/Multiply_30px.png"/>
+              <Image iconType="3" name="/drawable/close_ico_02.png"/>
             </Property>
             <Property name="opaque" type="boolean" value="true"/>
           </Properties>
@@ -194,7 +194,7 @@
           <Properties>
             <Property name="horizontalAlignment" type="int" value="0"/>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/Icons/icons80x/Administrator Male_20px_3.png"/>
+              <Image iconType="3" name="/drawable/login_txtfield_ico_01.png"/>
             </Property>
           </Properties>
           <Constraints>
@@ -258,7 +258,7 @@
           <Properties>
             <Property name="horizontalAlignment" type="int" value="0"/>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/Icons/icons80x/Key_20px_1.png"/>
+              <Image iconType="3" name="/drawable/login_pwdfield_ico.png"/>
             </Property>
           </Properties>
           <Constraints>
