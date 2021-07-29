@@ -2,6 +2,10 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/home/allie/Personal/hospital_management_system/src/admin/adminDashboard.java</file>
+            <file>file:/home/allie/Personal/hospital_management_system/src/admin/addPatient.java</file>
+            <file>file:/home/allie/Personal/hospital_management_system/src/admin/addAdmin.java</file>
+        </group>
     </open-files>
 </project-private>

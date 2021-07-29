@@ -27,7 +27,7 @@ public class editProfile extends javax.swing.JFrame
     public void Search() {
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            String query = "SELECT * FROM `receptionist` WHERE username='" + login.username.getText() + "'";
+            String query = "SELECT * FROM `receptionist` WHERE username='" + login.email.getText() + "'";
             con = DriverManager.getConnection("jdbc:mysql://localhost:3306/hms", "root", "");
             pst = con.prepareStatement(query);
             rs = pst.executeQuery();
@@ -478,7 +478,7 @@ public class editProfile extends javax.swing.JFrame
     private void jLabel12MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel12MouseClicked
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            String sql = "UPDATE `receptionist` SET `Receptionist_ID`='" + id.getText() + "', `First_Name`='" + fname.getText() + "',`Last_Name`='" + lname.getText() + "',`Age`='" + age.getText() + "',`Gender`='" + (String) gender.getSelectedItem() + "',`Marital_Status`='" + (String) status.getSelectedItem() + "',`Date`='" + date.getText() + "',`Address`='" + address.getText() + "',`Email`='" + email.getText() + "',`Phone`='" + phone.getText() + "',`Username`='" + username.getText() + "',`Blood_Group`='" + blood.getText() + "', `Password`='" + password.getText() + "' WHERE `username`='" + login.username.getText() + "'";
+            String sql = "UPDATE `receptionist` SET `Receptionist_ID`='" + id.getText() + "', `First_Name`='" + fname.getText() + "',`Last_Name`='" + lname.getText() + "',`Age`='" + age.getText() + "',`Gender`='" + (String) gender.getSelectedItem() + "',`Marital_Status`='" + (String) status.getSelectedItem() + "',`Date`='" + date.getText() + "',`Address`='" + address.getText() + "',`Email`='" + email.getText() + "',`Phone`='" + phone.getText() + "',`Username`='" + username.getText() + "',`Blood_Group`='" + blood.getText() + "', `Password`='" + password.getText() + "' WHERE `username`='" + login.email.getText() + "'";
             con = DriverManager.getConnection("jdbc:mysql://localhost:3306/hms", "root", "");
             pst = con.prepareStatement(sql);
             pst.executeUpdate();

@@ -7,21 +7,18 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 /**
  *
  * @author Allwell Onen
  */
-public class login extends javax.swing.JFrame
-{
+public class login extends javax.swing.JFrame {
 
-    Connection con;
-    ResultSet rs;
+    private Connection con;
+    private ResultSet rs;
 
-    /**
-     * Creates new form Login
-     */
     public login() {
         initComponents();
         setLocationRelativeTo(null);
@@ -35,10 +32,14 @@ public class login extends javax.swing.JFrame
         System.exit(0);
     }
 
-    private void login() {
+    private void minimize() {
+        this.setState(JFrame.ICONIFIED);
+    }
+
+    private void Login() {
         try {
             String sqlite = "SELECT * FROM `doctor` "
-                    + "WHERE `username`='" + username.getText() + "' "
+                    + "WHERE `username`='" + email.getText() + "' "
                     + "and `password`='" + password.getText() + "'";
 
             db();
@@ -47,8 +48,8 @@ public class login extends javax.swing.JFrame
                 new docPortal().show();
                 dispose();
             } else {
-                JOptionPane.showMessageDialog(null, "Incorrect input");
-                username.setText("");
+                JOptionPane.showMessageDialog(null, "Incorrect username or password!");
+                email.setText("");
                 password.setText("");
             }
             rs.close();
@@ -71,26 +72,27 @@ public class login extends javax.swing.JFrame
         bckBtn = new javax.swing.JLabel();
         closeBtn = new javax.swing.JLabel();
         loginIcon = new javax.swing.JLabel();
-        username = new javax.swing.JTextField();
+        email = new javax.swing.JTextField();
         password = new javax.swing.JPasswordField();
         passwordIcon = new javax.swing.JLabel();
         forgot = new javax.swing.JLabel();
-        loginTxt = new javax.swing.JLabel();
+        loginBtn = new javax.swing.JLabel();
+        minimize = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocationByPlatform(true);
         setUndecorated(true);
 
-        mainLayout.setBackground(new java.awt.Color(255, 255, 255));
+        mainLayout.setBackground(new java.awt.Color(250, 250, 250));
         mainLayout.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         logoPanel.setBackground(new java.awt.Color(32, 178, 170));
         logoPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        logoTxt.setFont(new java.awt.Font("BankGothic Lt BT", 0, 36)); // NOI18N
+        logoTxt.setFont(new java.awt.Font("Verdana", 0, 36)); // NOI18N
         logoTxt.setForeground(new java.awt.Color(240, 240, 240));
         logoTxt.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        logoTxt.setText("HarryLand Hospital");
+        logoTxt.setText("Hospital Management");
         logoPanel.add(logoTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 0, -1, 50));
 
         logo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -102,7 +104,7 @@ public class login extends javax.swing.JFrame
         loginPanel.setBackground(new java.awt.Color(32, 178, 170));
         loginPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        doc_login_label.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
+        doc_login_label.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         doc_login_label.setForeground(new java.awt.Color(240, 240, 240));
         doc_login_label.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         doc_login_label.setText("DOCTOR LOGIN PANEL");
@@ -110,7 +112,7 @@ public class login extends javax.swing.JFrame
 
         mainLayout.add(loginPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 80, 270, 40));
 
-        bckBtn.setBackground(new java.awt.Color(255, 255, 255));
+        bckBtn.setBackground(new java.awt.Color(250, 250, 250));
         bckBtn.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         bckBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/drawable/back_ico_01.png"))); // NOI18N
         bckBtn.setOpaque(true);
@@ -127,7 +129,7 @@ public class login extends javax.swing.JFrame
         });
         mainLayout.add(bckBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 20, 30));
 
-        closeBtn.setBackground(new java.awt.Color(255, 255, 255));
+        closeBtn.setBackground(new java.awt.Color(250, 250, 250));
         closeBtn.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         closeBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/drawable/close_ico_02.png"))); // NOI18N
         closeBtn.setOpaque(true);
@@ -145,30 +147,32 @@ public class login extends javax.swing.JFrame
         mainLayout.add(closeBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 0, 30, 30));
 
         loginIcon.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        loginIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/drawable/login_txtfield_ico_01.png"))); // NOI18N
+        loginIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/drawable/login_email_ico.png"))); // NOI18N
+        loginIcon.setOpaque(true);
         mainLayout.add(loginIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 170, 30, 30));
 
-        username.setBackground(new java.awt.Color(240, 240, 240));
-        username.setFont(new java.awt.Font("Segoe UI Semibold", 0, 13)); // NOI18N
-        username.setForeground(new java.awt.Color(100, 100, 100));
-        username.setHorizontalAlignment(javax.swing.JTextField.LEFT);
-        username.setBorder(null);
-        username.setCaretColor(new java.awt.Color(74, 179, 175));
-        mainLayout.add(username, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 170, 360, 30));
+        email.setBackground(new java.awt.Color(240, 240, 240));
+        email.setFont(new java.awt.Font("Verdana", 0, 13)); // NOI18N
+        email.setForeground(new java.awt.Color(100, 100, 100));
+        email.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        email.setBorder(null);
+        email.setCaretColor(new java.awt.Color(74, 179, 175));
+        mainLayout.add(email, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 170, 360, 30));
 
         password.setBackground(new java.awt.Color(240, 240, 240));
-        password.setFont(new java.awt.Font("Segoe UI Semibold", 0, 13)); // NOI18N
+        password.setFont(new java.awt.Font("Verdana", 0, 13)); // NOI18N
         password.setForeground(new java.awt.Color(100, 100, 100));
         password.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         password.setBorder(null);
         password.setCaretColor(new java.awt.Color(74, 179, 175));
-        mainLayout.add(password, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 240, 360, 30));
+        mainLayout.add(password, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 220, 360, 30));
 
         passwordIcon.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         passwordIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/drawable/login_pwdfield_ico.png"))); // NOI18N
-        mainLayout.add(passwordIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 240, 30, 30));
+        passwordIcon.setOpaque(true);
+        mainLayout.add(passwordIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 220, 30, 30));
 
-        forgot.setFont(new java.awt.Font("Segoe UI Semibold", 0, 12)); // NOI18N
+        forgot.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
         forgot.setForeground(new java.awt.Color(32, 178, 170));
         forgot.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         forgot.setText("Forgot Password?");
@@ -184,21 +188,45 @@ public class login extends javax.swing.JFrame
                 forgotMouseEntered(evt);
             }
         });
-        mainLayout.add(forgot, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 290, 120, 30));
+        mainLayout.add(forgot, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 270, 120, 30));
 
-        loginTxt.setBackground(new java.awt.Color(32, 178, 170));
-        loginTxt.setFont(new java.awt.Font("Segoe UI Semibold", 0, 13)); // NOI18N
-        loginTxt.setForeground(new java.awt.Color(240, 240, 240));
-        loginTxt.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        loginTxt.setText("Login");
-        loginTxt.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        loginTxt.setOpaque(true);
-        loginTxt.addMouseListener(new java.awt.event.MouseAdapter() {
+        loginBtn.setBackground(new java.awt.Color(250, 250, 250));
+        loginBtn.setFont(new java.awt.Font("Verdana", 1, 13)); // NOI18N
+        loginBtn.setForeground(new java.awt.Color(100, 100, 100));
+        loginBtn.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        loginBtn.setText("Login");
+        loginBtn.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(74, 179, 175)));
+        loginBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        loginBtn.setOpaque(true);
+        loginBtn.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                loginTxtMouseClicked(evt);
+                loginBtnregBtnMouseClicked(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                loginBtnMouseExited(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                loginBtnMouseEntered(evt);
             }
         });
-        mainLayout.add(loginTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 290, 100, 30));
+        mainLayout.add(loginBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 270, 90, 30));
+
+        minimize.setBackground(new java.awt.Color(250, 250, 250));
+        minimize.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        minimize.setIcon(new javax.swing.ImageIcon(getClass().getResource("/drawable/minimize.png"))); // NOI18N
+        minimize.setOpaque(true);
+        minimize.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                minimizeMouseClicked(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                minimizeMouseExited(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                minimizeMouseEntered(evt);
+            }
+        });
+        mainLayout.add(minimize, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 0, 40, 30));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -234,7 +262,7 @@ public class login extends javax.swing.JFrame
     }//GEN-LAST:event_bckBtnMouseEntered
 
     private void bckBtnMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bckBtnMouseExited
-        bckBtn.setBackground(new Color(255, 255, 255));
+        bckBtn.setBackground(new Color(250, 250, 250));
     }//GEN-LAST:event_bckBtnMouseExited
 
     private void closeBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_closeBtnMouseClicked
@@ -246,7 +274,7 @@ public class login extends javax.swing.JFrame
     }//GEN-LAST:event_closeBtnMouseEntered
 
     private void closeBtnMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_closeBtnMouseExited
-        closeBtn.setBackground(new Color(255, 255, 255));
+        closeBtn.setBackground(new Color(250, 250, 250));
     }//GEN-LAST:event_closeBtnMouseExited
 
     private void forgotMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_forgotMouseClicked
@@ -262,9 +290,29 @@ public class login extends javax.swing.JFrame
         forgot.setForeground(new Color(74, 179, 175));
     }//GEN-LAST:event_forgotMouseExited
 
-    private void loginTxtMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_loginTxtMouseClicked
-        login();
-    }//GEN-LAST:event_loginTxtMouseClicked
+    private void loginBtnregBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_loginBtnregBtnMouseClicked
+        Login();
+    }//GEN-LAST:event_loginBtnregBtnMouseClicked
+
+    private void loginBtnMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_loginBtnMouseExited
+        loginBtn.setBackground(new Color(250, 250, 250));
+    }//GEN-LAST:event_loginBtnMouseExited
+
+    private void loginBtnMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_loginBtnMouseEntered
+        loginBtn.setBackground(new Color(240, 240, 240));
+    }//GEN-LAST:event_loginBtnMouseEntered
+
+    private void minimizeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_minimizeMouseClicked
+        minimize();
+    }//GEN-LAST:event_minimizeMouseClicked
+
+    private void minimizeMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_minimizeMouseExited
+        minimize.setBackground(new Color(250, 250, 250));
+    }//GEN-LAST:event_minimizeMouseExited
+
+    private void minimizeMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_minimizeMouseEntered
+        minimize.setBackground(new Color(240, 240, 240));
+    }//GEN-LAST:event_minimizeMouseEntered
 
     /**
      * @param args the command line arguments
@@ -282,24 +330,18 @@ public class login extends javax.swing.JFrame
                     break;
                 }
             }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
         //</editor-fold>
 
+        //</editor-fold>
+        //</editor-fold>
+
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable()
-        {
-            public void run() {
-                new login().setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            new login().setVisible(true);
         });
     }
 
@@ -307,16 +349,17 @@ public class login extends javax.swing.JFrame
     private javax.swing.JLabel bckBtn;
     private javax.swing.JLabel closeBtn;
     private javax.swing.JLabel doc_login_label;
+    protected static javax.swing.JTextField email;
     private javax.swing.JLabel forgot;
+    private javax.swing.JLabel loginBtn;
     private javax.swing.JLabel loginIcon;
     private javax.swing.JPanel loginPanel;
-    private javax.swing.JLabel loginTxt;
     private javax.swing.JLabel logo;
     private javax.swing.JPanel logoPanel;
     private javax.swing.JLabel logoTxt;
     private javax.swing.JPanel mainLayout;
+    private javax.swing.JLabel minimize;
     protected static javax.swing.JPasswordField password;
     private javax.swing.JLabel passwordIcon;
-    protected static javax.swing.JTextField username;
     // End of variables declaration//GEN-END:variables
 }

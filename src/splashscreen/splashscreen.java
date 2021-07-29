@@ -18,7 +18,7 @@ public class splashscreen extends javax.swing.JFrame
     private void startsplashscreen() {
         try {
             for (int i = 0; i <= 100; i++) {
-                Thread.sleep(200);
+                Thread.sleep(50);
                 progress_indicator.setText(Integer.toString(i) + "%");
                 progress_bar.setValue(i);
 
@@ -116,7 +116,6 @@ public class splashscreen extends javax.swing.JFrame
         jLabel2.setFont(new java.awt.Font("Open Sans", 0, 24)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(74, 179, 175));
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setText("Port Harcourt");
         mainLayout.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 50, 430, 60));
 
         jLabel4.setFont(new java.awt.Font("Open Sans", 0, 36)); // NOI18N

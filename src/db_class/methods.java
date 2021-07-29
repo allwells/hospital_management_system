@@ -22,7 +22,7 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 
 /**
  *
- * @author Allwell Ubi
+ * @author Allwell Onen
  */
 public class methods {
     Connection con;

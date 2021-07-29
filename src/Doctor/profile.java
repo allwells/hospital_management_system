@@ -21,7 +21,7 @@ public class profile extends javax.swing.JFrame
     private static Connection con;
     private static ResultSet rs;
 
-    private final String login_username = login.username.getText();
+    private final String login_username = login.email.getText();
     private final String login_password = login.password.getText();
 
     public profile() {

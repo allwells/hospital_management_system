@@ -15,8 +15,7 @@ import net.proteanit.sql.DbUtils;
  *
  * @author Allwell Onen
  */
-public class ViewAppointment extends javax.swing.JFrame
-{
+public class ViewAppointment extends javax.swing.JFrame {
 
     private static Connection con;
     private static ResultSet rs;
@@ -49,7 +48,7 @@ public class ViewAppointment extends javax.swing.JFrame
 
     private void Delete() {
         try {
-            String sqlite = "DELETE FROM `appointment` WHERE `name_of_visitor` ='" + search.getText() + "'";
+            String sqlite = "DELETE FROM `appointment` WHERE `Visitor` ='" + search.getText() + "'";
             db();
             int check = con.prepareStatement(sqlite).executeUpdate();
             if (check == 1) {
@@ -82,7 +81,7 @@ public class ViewAppointment extends javax.swing.JFrame
 
     private void Search() {
         try {
-            String sqlite = "SELECT * FROM `appointment` WHERE `name_of_visitor`='" + search.getText() + "'";
+            String sqlite = "SELECT * FROM `appointment` WHERE `Visitor`='" + search.getText() + "'";
 
             db();
             rs = con.prepareStatement(sqlite).executeQuery();
@@ -115,12 +114,14 @@ public class ViewAppointment extends javax.swing.JFrame
         jScrollPane1 = new javax.swing.JScrollPane();
         table = new javax.swing.JTable();
         minimize = new javax.swing.JLabel();
+        footer = new javax.swing.JPanel();
+        jLabel13 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocationByPlatform(true);
         setUndecorated(true);
 
-        mainLayout.setBackground(new java.awt.Color(255, 255, 255));
+        mainLayout.setBackground(new java.awt.Color(250, 250, 250));
         mainLayout.setMaximumSize(new java.awt.Dimension(1270, 670));
         mainLayout.setMinimumSize(new java.awt.Dimension(1270, 670));
         mainLayout.setPreferredSize(new java.awt.Dimension(1270, 670));
@@ -130,7 +131,7 @@ public class ViewAppointment extends javax.swing.JFrame
         icon1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/drawable/appointment_ico.png"))); // NOI18N
         mainLayout.add(icon1, new org.netbeans.lib.awtextra.AbsoluteConstraints(14, 40, 50, 50));
 
-        closeBtn.setBackground(new java.awt.Color(255, 255, 255));
+        closeBtn.setBackground(new java.awt.Color(250, 250, 250));
         closeBtn.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         closeBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/drawable/close_ico_02.png"))); // NOI18N
         closeBtn.setOpaque(true);
@@ -145,7 +146,7 @@ public class ViewAppointment extends javax.swing.JFrame
                 closeBtnMouseEntered(evt);
             }
         });
-        mainLayout.add(closeBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(1230, 0, 40, 40));
+        mainLayout.add(closeBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(1050, 0, 40, 40));
 
         icon.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         icon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/drawable/circle_bg_green.png"))); // NOI18N
@@ -176,7 +177,7 @@ public class ViewAppointment extends javax.swing.JFrame
                 homeBtnMouseEntered(evt);
             }
         });
-        crossoverPanel.add(homeBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(1110, 0, 50, 50));
+        crossoverPanel.add(homeBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 0, 50, 50));
 
         logoutBtn.setBackground(new java.awt.Color(32, 178, 170));
         logoutBtn.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -194,9 +195,9 @@ public class ViewAppointment extends javax.swing.JFrame
                 logoutBtnMouseEntered(evt);
             }
         });
-        crossoverPanel.add(logoutBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(1160, 0, 50, 50));
+        crossoverPanel.add(logoutBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 0, 50, 50));
 
-        search.setBackground(new java.awt.Color(255, 255, 255));
+        search.setBackground(new java.awt.Color(250, 250, 250));
         search.setFont(new java.awt.Font("Segoe UI Semilight", 0, 15)); // NOI18N
         search.setForeground(new java.awt.Color(100, 100, 100));
         search.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -220,9 +221,9 @@ public class ViewAppointment extends javax.swing.JFrame
                 searchActionPerformed(evt);
             }
         });
-        crossoverPanel.add(search, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 10, 780, 30));
+        crossoverPanel.add(search, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 10, 590, 30));
 
-        search_button.setBackground(new java.awt.Color(255, 255, 255));
+        search_button.setBackground(new java.awt.Color(250, 250, 250));
         search_button.setForeground(new java.awt.Color(32, 178, 170));
         search_button.setText("Search");
         search_button.setOpaque(true);
@@ -231,22 +232,24 @@ public class ViewAppointment extends javax.swing.JFrame
                 search_buttonMousePressed(evt);
             }
         });
-        crossoverPanel.add(search_button, new org.netbeans.lib.awtextra.AbsoluteConstraints(1050, 10, 60, 30));
+        crossoverPanel.add(search_button, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 10, 60, 30));
 
-        mainLayout.add(crossoverPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 40, 1210, 50));
+        mainLayout.add(crossoverPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 40, 1030, 50));
 
-        delete.setBackground(new java.awt.Color(74, 179, 175));
-        delete.setFont(new java.awt.Font("Segoe UI Semilight", 0, 16)); // NOI18N
-        delete.setForeground(new java.awt.Color(255, 255, 255));
+        delete.setBackground(new java.awt.Color(245, 245, 245));
+        delete.setFont(new java.awt.Font("Verdana", 1, 15)); // NOI18N
+        delete.setForeground(new java.awt.Color(100, 100, 100));
         delete.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         delete.setText("Delete");
+        delete.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(200, 200, 200), 2));
+        delete.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         delete.setOpaque(true);
         delete.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 deleteMousePressed(evt);
             }
         });
-        mainLayout.add(delete, new org.netbeans.lib.awtextra.AbsoluteConstraints(1190, 100, 70, 30));
+        mainLayout.add(delete, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 100, 70, 30));
 
         back.setBackground(new java.awt.Color(32, 178, 170));
         back.setFont(new java.awt.Font("Segoe UI Semilight", 1, 16)); // NOI18N
@@ -262,7 +265,6 @@ public class ViewAppointment extends javax.swing.JFrame
         mainLayout.add(back, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 110, 60, 30));
 
         table.setAutoCreateRowSorter(true);
-        table.setBackground(new java.awt.Color(255, 255, 255));
         table.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
         table.setForeground(new java.awt.Color(100, 100, 100));
         table.setModel(new javax.swing.table.DefaultTableModel(
@@ -291,9 +293,9 @@ public class ViewAppointment extends javax.swing.JFrame
         table.setGridColor(new java.awt.Color(223, 231, 241));
         jScrollPane1.setViewportView(table);
 
-        mainLayout.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 140, 1270, 480));
+        mainLayout.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 140, 1090, 490));
 
-        minimize.setBackground(new java.awt.Color(255, 255, 255));
+        minimize.setBackground(new java.awt.Color(250, 250, 250));
         minimize.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         minimize.setIcon(new javax.swing.ImageIcon(getClass().getResource("/drawable/minimize.png"))); // NOI18N
         minimize.setOpaque(true);
@@ -308,13 +310,24 @@ public class ViewAppointment extends javax.swing.JFrame
                 minimizeMouseEntered(evt);
             }
         });
-        mainLayout.add(minimize, new org.netbeans.lib.awtextra.AbsoluteConstraints(1190, 0, 40, 40));
+        mainLayout.add(minimize, new org.netbeans.lib.awtextra.AbsoluteConstraints(1010, 0, 40, 40));
+
+        footer.setBackground(new java.awt.Color(245, 245, 245));
+        footer.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel13.setFont(new java.awt.Font("Verdana", 0, 11)); // NOI18N
+        jLabel13.setForeground(new java.awt.Color(100, 100, 100));
+        jLabel13.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel13.setText("Copyright © 2021");
+        footer.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 0, 160, 40));
+
+        mainLayout.add(footer, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 630, 1090, 40));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(mainLayout, javax.swing.GroupLayout.PREFERRED_SIZE, 1270, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(mainLayout, javax.swing.GroupLayout.PREFERRED_SIZE, 1091, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -335,7 +348,7 @@ public class ViewAppointment extends javax.swing.JFrame
     }//GEN-LAST:event_closeBtnMouseEntered
 
     private void closeBtnMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_closeBtnMouseExited
-        closeBtn.setBackground(new Color(255, 255, 255));
+        closeBtn.setBackground(new Color(250, 250, 250));
     }//GEN-LAST:event_closeBtnMouseExited
 
     private void homeBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_homeBtnMouseClicked
@@ -378,7 +391,7 @@ public class ViewAppointment extends javax.swing.JFrame
     }//GEN-LAST:event_minimizeMouseClicked
 
     private void minimizeMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_minimizeMouseExited
-        minimize.setBackground(new Color(255, 255, 255));
+        minimize.setBackground(new Color(250, 250, 250));
     }//GEN-LAST:event_minimizeMouseExited
 
     private void minimizeMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_minimizeMouseEntered
@@ -441,9 +454,11 @@ public class ViewAppointment extends javax.swing.JFrame
     private javax.swing.JLabel closeBtn;
     private javax.swing.JPanel crossoverPanel;
     private javax.swing.JLabel delete;
+    private javax.swing.JPanel footer;
     private javax.swing.JLabel homeBtn;
     private javax.swing.JLabel icon;
     private javax.swing.JLabel icon1;
+    private javax.swing.JLabel jLabel13;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel logoutBtn;
     private javax.swing.JPanel mainLayout;

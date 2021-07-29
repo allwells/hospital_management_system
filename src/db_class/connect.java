@@ -5,7 +5,7 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author Allwel Festus
+ * @author Allwel Onen
  */
 public class connect {
     
@@ -14,7 +14,7 @@ public class connect {
             Class.forName("com.mysql.jdbc.Driver");
             Connection conn=DriverManager.getConnection("jdbc:mysql://localhost:3306/hms","root","");
             return conn;
-        }catch(Exception e){
+        }catch(ClassNotFoundException | SQLException e){
             JOptionPane.showMessageDialog(null, e.toString());
         }
         return null;

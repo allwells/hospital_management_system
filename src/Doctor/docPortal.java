@@ -8,21 +8,17 @@ import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
-import javax.swing.JFileChooser;
 
 /**
  *
  * @author Allwell Onen
  */
-public class docPortal extends javax.swing.JFrame
-{
+public class docPortal extends javax.swing.JFrame {
 
-    Connection con;
-    ResultSet rs;
+    private Connection con;
+    private ResultSet rs;
 
-    JFileChooser choose = new JFileChooser();
-
-    private final String login_username = login.username.getText();
+    private final String login_username = login.email.getText();
     private final String login_password = login.password.getText();
 
     public docPortal() {

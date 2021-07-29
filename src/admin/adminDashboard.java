@@ -7,8 +7,7 @@ import javax.swing.JFrame;
  *
  * @author Allwell Onen
  */
-public class adminDashboard extends javax.swing.JFrame
-{
+public class adminDashboard extends javax.swing.JFrame {
 
     public adminDashboard() {
         initComponents();
@@ -33,36 +32,34 @@ public class adminDashboard extends javax.swing.JFrame
         recepTxt = new javax.swing.JLabel();
         docDetails = new javax.swing.JPanel();
         docTxt = new javax.swing.JLabel();
-        Wel = new javax.swing.JLabel();
-        to = new javax.swing.JLabel();
-        adminPtl = new javax.swing.JLabel();
         new_admin = new javax.swing.JLabel();
-        reset_password = new javax.swing.JLabel();
         closeBtn = new javax.swing.JLabel();
         minimize = new javax.swing.JLabel();
         profile = new javax.swing.JLabel();
-        backgroundImage = new javax.swing.JLabel();
+        footer = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocationByPlatform(true);
-        setMinimumSize(new java.awt.Dimension(1270, 670));
+        setMaximumSize(new java.awt.Dimension(1091, 670));
+        setMinimumSize(new java.awt.Dimension(1091, 670));
         setUndecorated(true);
 
-        mainLayout.setBackground(new java.awt.Color(255, 255, 255));
+        mainLayout.setBackground(new java.awt.Color(250, 250, 250));
         mainLayout.setAutoscrolls(true);
-        mainLayout.setMaximumSize(new java.awt.Dimension(1270, 670));
-        mainLayout.setMinimumSize(new java.awt.Dimension(1270, 670));
-        mainLayout.setPreferredSize(new java.awt.Dimension(1270, 670));
+        mainLayout.setMaximumSize(new java.awt.Dimension(1091, 670));
+        mainLayout.setMinimumSize(new java.awt.Dimension(1091, 670));
+        mainLayout.setPreferredSize(new java.awt.Dimension(1091, 670));
         mainLayout.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         profileImage.setBackground(new java.awt.Color(85, 125, 245));
         profileImage.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        profileImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hms_login/icons/admin.png"))); // NOI18N
+        profileImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/drawable/admin_ico.png"))); // NOI18N
         mainLayout.add(profileImage, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 60, 60));
 
         backgroundIcon.setBackground(new java.awt.Color(85, 125, 245));
         backgroundIcon.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        backgroundIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/pictures/New Moon_100px_1.png"))); // NOI18N
+        backgroundIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/drawable/circle_bg_green.png"))); // NOI18N
         mainLayout.add(backgroundIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 80, 100));
 
         crossoverPanel.setBackground(new java.awt.Color(32, 178, 170));
@@ -70,11 +67,11 @@ public class adminDashboard extends javax.swing.JFrame
 
         adminPortal.setFont(new java.awt.Font("Segoe UI Semilight", 0, 24)); // NOI18N
         adminPortal.setForeground(new java.awt.Color(255, 255, 255));
-        adminPortal.setText("Admin Portal");
+        adminPortal.setText("Dashboard");
         crossoverPanel.add(adminPortal, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 160, 40));
 
         logoutBtn.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        logoutBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/Export_25px.png"))); // NOI18N
+        logoutBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/drawable/logout_ico_01.png"))); // NOI18N
         logoutBtn.setToolTipText("Logout");
         logoutBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         logoutBtn.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -86,8 +83,8 @@ public class adminDashboard extends javax.swing.JFrame
 
         mainLayout.add(crossoverPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 30, 510, 40));
 
-        patientDetails.setBackground(new java.awt.Color(255, 255, 255));
-        patientDetails.setBorder(javax.swing.BorderFactory.createMatteBorder(5, 0, 0, 2, new java.awt.Color(32, 178, 170)));
+        patientDetails.setBackground(new java.awt.Color(240, 240, 240));
+        patientDetails.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         patientDetails.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 patDetailsMouseClicked(evt);
@@ -102,8 +99,8 @@ public class adminDashboard extends javax.swing.JFrame
         patientDetails.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         patDetails.setBackground(new java.awt.Color(255, 255, 255));
-        patDetails.setFont(new java.awt.Font("Segoe UI Semilight", 2, 24)); // NOI18N
-        patDetails.setForeground(new java.awt.Color(32, 178, 170));
+        patDetails.setFont(new java.awt.Font("Verdana", 0, 24)); // NOI18N
+        patDetails.setForeground(new java.awt.Color(100, 100, 100));
         patDetails.setText("Patient Details");
         patDetails.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         patDetails.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -117,12 +114,12 @@ public class adminDashboard extends javax.swing.JFrame
                 patDetailsMouseEntered(evt);
             }
         });
-        patientDetails.add(patDetails, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 260, 50));
+        patientDetails.add(patDetails, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 260, 50));
 
-        mainLayout.add(patientDetails, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 110, 300, 110));
+        mainLayout.add(patientDetails, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 160, 390, 150));
 
-        app.setBackground(new java.awt.Color(255, 255, 255));
-        app.setBorder(javax.swing.BorderFactory.createMatteBorder(5, 0, 0, 2, new java.awt.Color(32, 178, 170)));
+        app.setBackground(new java.awt.Color(240, 240, 240));
+        app.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         app.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 appointTxtMouseClicked(evt);
@@ -137,8 +134,8 @@ public class adminDashboard extends javax.swing.JFrame
         app.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         appointTxt.setBackground(new java.awt.Color(255, 255, 255));
-        appointTxt.setFont(new java.awt.Font("Segoe UI Semilight", 2, 24)); // NOI18N
-        appointTxt.setForeground(new java.awt.Color(32, 178, 170));
+        appointTxt.setFont(new java.awt.Font("Verdana", 0, 24)); // NOI18N
+        appointTxt.setForeground(new java.awt.Color(100, 100, 100));
         appointTxt.setText("Set Appointment");
         appointTxt.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -151,12 +148,12 @@ public class adminDashboard extends javax.swing.JFrame
                 appointTxtMouseEntered(evt);
             }
         });
-        app.add(appointTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 260, 50));
+        app.add(appointTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 260, 50));
 
-        mainLayout.add(app, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 530, 300, 110));
+        mainLayout.add(app, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 350, 390, 150));
 
-        Recep.setBackground(new java.awt.Color(255, 255, 255));
-        Recep.setBorder(javax.swing.BorderFactory.createMatteBorder(5, 0, 0, 2, new java.awt.Color(32, 178, 170)));
+        Recep.setBackground(new java.awt.Color(240, 240, 240));
+        Recep.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         Recep.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 RecepMouseClicked(evt);
@@ -171,8 +168,8 @@ public class adminDashboard extends javax.swing.JFrame
         Recep.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         recepTxt.setBackground(new java.awt.Color(255, 255, 255));
-        recepTxt.setFont(new java.awt.Font("Segoe UI Semilight", 2, 24)); // NOI18N
-        recepTxt.setForeground(new java.awt.Color(32, 178, 170));
+        recepTxt.setFont(new java.awt.Font("Verdana", 0, 24)); // NOI18N
+        recepTxt.setForeground(new java.awt.Color(100, 100, 100));
         recepTxt.setText("Receptionist Details");
         recepTxt.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         recepTxt.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -186,12 +183,12 @@ public class adminDashboard extends javax.swing.JFrame
                 RecepMouseEntered(evt);
             }
         });
-        Recep.add(recepTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 260, 50));
+        Recep.add(recepTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 260, 50));
 
-        mainLayout.add(Recep, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 250, 300, 110));
+        mainLayout.add(Recep, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 160, 390, 150));
 
-        docDetails.setBackground(new java.awt.Color(255, 255, 255));
-        docDetails.setBorder(javax.swing.BorderFactory.createMatteBorder(5, 0, 0, 2, new java.awt.Color(32, 178, 170)));
+        docDetails.setBackground(new java.awt.Color(240, 240, 240));
+        docDetails.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         docDetails.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 docIconMouseClicked(evt);
@@ -206,8 +203,8 @@ public class adminDashboard extends javax.swing.JFrame
         docDetails.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         docTxt.setBackground(new java.awt.Color(255, 255, 255));
-        docTxt.setFont(new java.awt.Font("Segoe UI Semilight", 2, 24)); // NOI18N
-        docTxt.setForeground(new java.awt.Color(32, 178, 170));
+        docTxt.setFont(new java.awt.Font("Verdana", 0, 24)); // NOI18N
+        docTxt.setForeground(new java.awt.Color(100, 100, 100));
         docTxt.setText("Doctor Details");
         docTxt.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         docTxt.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -221,33 +218,15 @@ public class adminDashboard extends javax.swing.JFrame
                 docIconMouseEntered(evt);
             }
         });
-        docDetails.add(docTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 250, 50));
+        docDetails.add(docTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 260, 50));
 
-        mainLayout.add(docDetails, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 390, 300, 110));
+        mainLayout.add(docDetails, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 350, 390, 150));
 
-        Wel.setFont(new java.awt.Font("Segoe UI Symbol", 0, 24)); // NOI18N
-        Wel.setForeground(new java.awt.Color(255, 255, 255));
-        Wel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Wel.setText("Welcome");
-        mainLayout.add(Wel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, 120, 40));
-
-        to.setFont(new java.awt.Font("Segoe UI Light", 0, 13)); // NOI18N
-        to.setForeground(new java.awt.Color(255, 255, 255));
-        to.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        to.setText("to");
-        mainLayout.add(to, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 120, 40, 30));
-
-        adminPtl.setFont(new java.awt.Font("Segoe UI Semilight", 0, 20)); // NOI18N
-        adminPtl.setForeground(new java.awt.Color(255, 255, 255));
-        adminPtl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        adminPtl.setText("Admin Portal");
-        mainLayout.add(adminPtl, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 150, 160, -1));
-
-        new_admin.setBackground(new java.awt.Color(0, 153, 153));
-        new_admin.setFont(new java.awt.Font("Segoe UI Semibold", 0, 15)); // NOI18N
-        new_admin.setForeground(new java.awt.Color(255, 255, 255));
+        new_admin.setBackground(new java.awt.Color(250, 250, 250));
+        new_admin.setFont(new java.awt.Font("Verdana", 1, 15)); // NOI18N
+        new_admin.setForeground(new java.awt.Color(0, 153, 153));
         new_admin.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        new_admin.setText("Add new Admin");
+        new_admin.setText("Add Admin");
         new_admin.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         new_admin.setOpaque(true);
         new_admin.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -261,33 +240,12 @@ public class adminDashboard extends javax.swing.JFrame
                 new_adminMouseEntered(evt);
             }
         });
-        mainLayout.add(new_admin, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 250, 160, 40));
-
-        reset_password.setBackground(new java.awt.Color(0, 153, 153));
-        reset_password.setFont(new java.awt.Font("Segoe UI Semibold", 0, 15)); // NOI18N
-        reset_password.setForeground(new java.awt.Color(255, 255, 255));
-        reset_password.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        reset_password.setText("Reset Password");
-        reset_password.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        reset_password.setOpaque(true);
-        reset_password.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                reset_passwordMouseClicked(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                reset_passwordMouseExited(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                reset_passwordMouseEntered(evt);
-            }
-        });
-        mainLayout.add(reset_password, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 290, 160, 40));
+        mainLayout.add(new_admin, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 80, 100, 20));
 
         closeBtn.setBackground(new java.awt.Color(161, 190, 196));
         closeBtn.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        closeBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/icons80x/Multiply_30px.png"))); // NOI18N
+        closeBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/drawable/close_ico_02.png"))); // NOI18N
         closeBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        closeBtn.setOpaque(true);
         closeBtn.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 closeBtnMouseClicked(evt);
@@ -299,16 +257,15 @@ public class adminDashboard extends javax.swing.JFrame
                 closeBtnMouseEntered(evt);
             }
         });
-        mainLayout.add(closeBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(1230, 0, 40, 40));
+        mainLayout.add(closeBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(1050, 0, 40, 40));
 
         minimize.setBackground(new java.awt.Color(161, 190, 196));
         minimize.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 36)); // NOI18N
         minimize.setForeground(new java.awt.Color(255, 255, 255));
         minimize.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        minimize.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hms_login/icons/minimize.png"))); // NOI18N
+        minimize.setIcon(new javax.swing.ImageIcon(getClass().getResource("/drawable/minimize.png"))); // NOI18N
         minimize.setToolTipText("");
         minimize.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        minimize.setOpaque(true);
         minimize.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 minimizeMouseClicked(evt);
@@ -320,11 +277,11 @@ public class adminDashboard extends javax.swing.JFrame
                 minimizeMouseEntered(evt);
             }
         });
-        mainLayout.add(minimize, new org.netbeans.lib.awtextra.AbsoluteConstraints(1190, 0, 40, 40));
+        mainLayout.add(minimize, new org.netbeans.lib.awtextra.AbsoluteConstraints(1010, 0, 40, 40));
 
-        profile.setBackground(new java.awt.Color(0, 153, 153));
-        profile.setFont(new java.awt.Font("Segoe UI Semibold", 0, 15)); // NOI18N
-        profile.setForeground(new java.awt.Color(255, 255, 255));
+        profile.setBackground(new java.awt.Color(250, 250, 250));
+        profile.setFont(new java.awt.Font("Verdana", 1, 15)); // NOI18N
+        profile.setForeground(new java.awt.Color(0, 153, 153));
         profile.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         profile.setText("Profile");
         profile.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -340,22 +297,24 @@ public class adminDashboard extends javax.swing.JFrame
                 profileMouseEntered(evt);
             }
         });
-        mainLayout.add(profile, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 210, 160, 40));
+        mainLayout.add(profile, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 80, 60, 20));
 
-        backgroundImage.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        backgroundImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/pictures/docPortal2.jpg"))); // NOI18N
-        backgroundImage.setAutoscrolls(true);
-        backgroundImage.setMaximumSize(new java.awt.Dimension(1270, 670));
-        backgroundImage.setMinimumSize(new java.awt.Dimension(1270, 670));
-        backgroundImage.setOpaque(true);
-        backgroundImage.setPreferredSize(new java.awt.Dimension(1270, 670));
-        mainLayout.add(backgroundImage, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1270, 670));
+        footer.setBackground(new java.awt.Color(240, 240, 240));
+        footer.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel1.setFont(new java.awt.Font("Verdana", 0, 11)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(100, 100, 100));
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("Copyright © 2021");
+        footer.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 0, 160, 40));
+
+        mainLayout.add(footer, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 630, 1090, 40));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(mainLayout, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(mainLayout, javax.swing.GroupLayout.PREFERRED_SIZE, 1091, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -379,22 +338,17 @@ public class adminDashboard extends javax.swing.JFrame
         closeBtn.setBackground(new Color(161, 190, 196));
     }//GEN-LAST:event_closeBtnMouseExited
 
-    private void logoutBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logoutBtnMouseClicked
-        new login().show();
-        dispose();
-    }//GEN-LAST:event_logoutBtnMouseClicked
-
     private void docIconMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_docIconMouseClicked
         new addDoctor().show();
         dispose();
     }//GEN-LAST:event_docIconMouseClicked
 
     private void docIconMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_docIconMouseEntered
-        docTxt.setForeground(new Color(100, 100, 100));
+        docTxt.setForeground(new Color(0, 153, 153));
     }//GEN-LAST:event_docIconMouseEntered
 
     private void docIconMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_docIconMouseExited
-        docTxt.setForeground(new Color(32, 178, 170));
+        docTxt.setForeground(new Color(100, 100, 100));
     }//GEN-LAST:event_docIconMouseExited
 
     private void RecepMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RecepMouseClicked
@@ -403,11 +357,11 @@ public class adminDashboard extends javax.swing.JFrame
     }//GEN-LAST:event_RecepMouseClicked
 
     private void RecepMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RecepMouseEntered
-        recepTxt.setForeground(new Color(100, 100, 100));
+        recepTxt.setForeground(new Color(0, 153, 153));
     }//GEN-LAST:event_RecepMouseEntered
 
     private void RecepMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RecepMouseExited
-        recepTxt.setForeground(new Color(32, 178, 170));
+        recepTxt.setForeground(new Color(100, 100, 100));
     }//GEN-LAST:event_RecepMouseExited
 
     private void appointTxtMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_appointTxtMouseClicked
@@ -416,11 +370,11 @@ public class adminDashboard extends javax.swing.JFrame
     }//GEN-LAST:event_appointTxtMouseClicked
 
     private void appointTxtMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_appointTxtMouseEntered
-        appointTxt.setForeground(new Color(100, 100, 100));
+        appointTxt.setForeground(new Color(0, 153, 153));
     }//GEN-LAST:event_appointTxtMouseEntered
 
     private void appointTxtMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_appointTxtMouseExited
-        appointTxt.setForeground(new Color(32, 178, 170));
+        appointTxt.setForeground(new Color(100, 100, 100));
     }//GEN-LAST:event_appointTxtMouseExited
 
     private void patDetailsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_patDetailsMouseClicked
@@ -429,27 +383,12 @@ public class adminDashboard extends javax.swing.JFrame
     }//GEN-LAST:event_patDetailsMouseClicked
 
     private void patDetailsMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_patDetailsMouseEntered
-        patDetails.setForeground(new Color(100, 100, 100));
+        patDetails.setForeground(new Color(0, 153, 153));
     }//GEN-LAST:event_patDetailsMouseEntered
 
     private void patDetailsMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_patDetailsMouseExited
-        patDetails.setForeground(new Color(32, 178, 170));
+        patDetails.setForeground(new Color(100, 100, 100));
     }//GEN-LAST:event_patDetailsMouseExited
-
-    private void reset_passwordMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_reset_passwordMouseClicked
-        new reset().show();
-        dispose();
-    }//GEN-LAST:event_reset_passwordMouseClicked
-
-    private void reset_passwordMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_reset_passwordMouseEntered
-        reset_password.setForeground(new Color(100, 100, 100));
-        reset_password.setBackground(new Color(32, 178, 170));
-    }//GEN-LAST:event_reset_passwordMouseEntered
-
-    private void reset_passwordMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_reset_passwordMouseExited
-        reset_password.setForeground(new Color(255, 255, 255));
-        reset_password.setBackground(new Color(0, 153, 153));;
-    }//GEN-LAST:event_reset_passwordMouseExited
 
     private void new_adminMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_new_adminMouseClicked
         new addAdmin().show();
@@ -458,12 +397,10 @@ public class adminDashboard extends javax.swing.JFrame
 
     private void new_adminMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_new_adminMouseEntered
         new_admin.setForeground(new Color(100, 100, 100));
-        new_admin.setBackground(new Color(32, 178, 170));
     }//GEN-LAST:event_new_adminMouseEntered
 
     private void new_adminMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_new_adminMouseExited
-        new_admin.setForeground(new Color(255, 255, 255));
-        new_admin.setBackground(new Color(0, 153, 153));
+        new_admin.setForeground(new Color(0, 153, 153));
     }//GEN-LAST:event_new_adminMouseExited
 
     private void minimizeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_minimizeMouseClicked
@@ -485,13 +422,16 @@ public class adminDashboard extends javax.swing.JFrame
 
     private void profileMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_profileMouseEntered
         profile.setForeground(new Color(100, 100, 100));
-        profile.setBackground(new Color(32, 178, 170));
     }//GEN-LAST:event_profileMouseEntered
 
     private void profileMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_profileMouseExited
-        profile.setForeground(new Color(255, 255, 255));
-        profile.setBackground(new Color(0, 153, 153));
+        profile.setForeground(new Color(0, 153, 153));
     }//GEN-LAST:event_profileMouseExited
+
+    private void logoutBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logoutBtnMouseClicked
+        new login().show();
+        dispose();
+    }//GEN-LAST:event_logoutBtnMouseClicked
 
     /**
      * @param args the command line arguments
@@ -525,17 +465,16 @@ public class adminDashboard extends javax.swing.JFrame
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Recep;
-    private javax.swing.JLabel Wel;
     private javax.swing.JLabel adminPortal;
-    private javax.swing.JLabel adminPtl;
     private javax.swing.JPanel app;
     private javax.swing.JLabel appointTxt;
     private javax.swing.JLabel backgroundIcon;
-    private javax.swing.JLabel backgroundImage;
     private javax.swing.JLabel closeBtn;
     private javax.swing.JPanel crossoverPanel;
     private javax.swing.JPanel docDetails;
     private javax.swing.JLabel docTxt;
+    private javax.swing.JPanel footer;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel logoutBtn;
     private javax.swing.JPanel mainLayout;
     private javax.swing.JLabel minimize;
@@ -545,7 +484,5 @@ public class adminDashboard extends javax.swing.JFrame
     private javax.swing.JLabel profile;
     private javax.swing.JLabel profileImage;
     private javax.swing.JLabel recepTxt;
-    private javax.swing.JLabel reset_password;
-    private javax.swing.JLabel to;
     // End of variables declaration//GEN-END:variables
 }

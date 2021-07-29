@@ -28,7 +28,7 @@ public class editProfile extends javax.swing.JFrame
     Connection con;
     ResultSet rs;
 
-    private final String login_username = login.username.getText();
+    private final String login_username = login.email.getText();
     private final String login_password = login.password.getText();
     private String s = null;
 

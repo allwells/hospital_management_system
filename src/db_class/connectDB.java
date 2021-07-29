@@ -8,7 +8,7 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author Allwell Ubi
+ * @author Allwell Onen
  */
 public class connectDB {
     Connection con=null;

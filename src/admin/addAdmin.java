@@ -13,8 +13,7 @@ import javax.swing.JOptionPane;
  *
  * @author Allwell Onen
  */
-public class addAdmin extends javax.swing.JFrame
-{
+public class addAdmin extends javax.swing.JFrame {
 
     private Connection con;
 
@@ -72,8 +71,6 @@ public class addAdmin extends javax.swing.JFrame
         email = new javax.swing.JTextField();
         password = new javax.swing.JPasswordField();
         passwordIcon = new javax.swing.JLabel();
-        regBtn = new javax.swing.JPanel();
-        register = new javax.swing.JLabel();
         username = new javax.swing.JTextField();
         emailIcon = new javax.swing.JLabel();
         confrmPsdIcon = new javax.swing.JLabel();
@@ -83,12 +80,13 @@ public class addAdmin extends javax.swing.JFrame
         lblEmail = new javax.swing.JLabel();
         fullname = new javax.swing.JTextField();
         minimize = new javax.swing.JLabel();
+        register = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocationByPlatform(true);
         setUndecorated(true);
 
-        mainLayout.setBackground(new java.awt.Color(255, 255, 255));
+        mainLayout.setBackground(new java.awt.Color(250, 250, 250));
         mainLayout.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         logoPanel.setBackground(new java.awt.Color(74, 179, 175));
@@ -97,8 +95,8 @@ public class addAdmin extends javax.swing.JFrame
         logoTxt.setFont(new java.awt.Font("BankGothic Lt BT", 0, 36)); // NOI18N
         logoTxt.setForeground(new java.awt.Color(240, 240, 240));
         logoTxt.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        logoTxt.setText("HarryLand Hospital");
-        logoPanel.add(logoTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 0, -1, 50));
+        logoTxt.setText("Hospital Manament");
+        logoPanel.add(logoTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 0, 360, 50));
 
         logo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/drawable/logo.png"))); // NOI18N
@@ -112,12 +110,12 @@ public class addAdmin extends javax.swing.JFrame
         adminLogin.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
         adminLogin.setForeground(new java.awt.Color(240, 240, 240));
         adminLogin.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        adminLogin.setText("ADMIN REGISTER PANEL");
+        adminLogin.setText("ADD ADMIN");
         loginPanel.add(adminLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 0, 170, 40));
 
         mainLayout.add(loginPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 80, 270, 40));
 
-        bckBtn.setBackground(new java.awt.Color(255, 255, 255));
+        bckBtn.setBackground(new java.awt.Color(250, 250, 250));
         bckBtn.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         bckBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/drawable/back_ico_01.png"))); // NOI18N
         bckBtn.setOpaque(true);
@@ -134,7 +132,7 @@ public class addAdmin extends javax.swing.JFrame
         });
         mainLayout.add(bckBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 20, 30));
 
-        closeBtn.setBackground(new java.awt.Color(255, 255, 255));
+        closeBtn.setBackground(new java.awt.Color(250, 250, 250));
         closeBtn.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         closeBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/drawable/close_ico_02.png"))); // NOI18N
         closeBtn.setOpaque(true);
@@ -142,23 +140,24 @@ public class addAdmin extends javax.swing.JFrame
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 closeBtnMouseClicked(evt);
             }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                closeBtnMouseEntered(evt);
-            }
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 closeBtnMouseExited(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                closeBtnMouseEntered(evt);
             }
         });
         mainLayout.add(closeBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 0, 40, 30));
 
+        usernameIcon.setBackground(new java.awt.Color(240, 240, 240));
         usernameIcon.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        usernameIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/drawable/login_txtfield_ico_01.png"))); // NOI18N
-        mainLayout.add(usernameIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 180, 30, 30));
+        usernameIcon.setOpaque(true);
+        mainLayout.add(usernameIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 180, 10, 30));
 
         email.setBackground(new java.awt.Color(240, 240, 240));
         email.setFont(new java.awt.Font("Segoe UI Semilight", 0, 14)); // NOI18N
         email.setForeground(new java.awt.Color(100, 100, 100));
-        email.setToolTipText("Email");
+        email.setToolTipText("");
         email.setBorder(null);
         email.setCaretColor(new java.awt.Color(74, 179, 175));
         mainLayout.add(email, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 250, 300, 30));
@@ -166,85 +165,67 @@ public class addAdmin extends javax.swing.JFrame
         password.setBackground(new java.awt.Color(240, 240, 240));
         password.setFont(new java.awt.Font("Segoe UI Semilight", 0, 14)); // NOI18N
         password.setForeground(new java.awt.Color(100, 100, 100));
-        password.setToolTipText("Confrim Password");
+        password.setToolTipText("");
         password.setBorder(null);
         password.setCaretColor(new java.awt.Color(74, 179, 175));
         mainLayout.add(password, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 250, 300, 30));
 
+        passwordIcon.setBackground(new java.awt.Color(240, 240, 240));
         passwordIcon.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        passwordIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/drawable/login_email_ico.png"))); // NOI18N
-        mainLayout.add(passwordIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 250, 30, 30));
-
-        regBtn.setBackground(new java.awt.Color(74, 179, 175));
-        regBtn.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                regBtnMouseClicked(evt);
-            }
-        });
-        regBtn.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        register.setFont(new java.awt.Font("Segoe UI Semibold", 0, 13)); // NOI18N
-        register.setForeground(new java.awt.Color(240, 240, 240));
-        register.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        register.setText("Regtister");
-        register.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                regBtnMouseClicked(evt);
-            }
-        });
-        regBtn.add(register, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, 60, 30));
-
-        mainLayout.add(regBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 300, 100, 30));
+        passwordIcon.setOpaque(true);
+        mainLayout.add(passwordIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 250, 10, 30));
 
         username.setBackground(new java.awt.Color(240, 240, 240));
         username.setFont(new java.awt.Font("Segoe UI Semilight", 0, 14)); // NOI18N
         username.setForeground(new java.awt.Color(100, 100, 100));
-        username.setToolTipText("Username");
+        username.setToolTipText("");
         username.setBorder(null);
         username.setCaretColor(new java.awt.Color(74, 179, 175));
         mainLayout.add(username, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 180, 300, 30));
 
+        emailIcon.setBackground(new java.awt.Color(240, 240, 240));
         emailIcon.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        emailIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/drawable/login_txtfield_ico_01.png"))); // NOI18N
-        mainLayout.add(emailIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 180, 30, 30));
+        emailIcon.setOpaque(true);
+        mainLayout.add(emailIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 180, 10, 30));
 
+        confrmPsdIcon.setBackground(new java.awt.Color(240, 240, 240));
         confrmPsdIcon.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        confrmPsdIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/drawable/login_pwdfield_ico.png"))); // NOI18N
-        mainLayout.add(confrmPsdIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 250, 30, 30));
+        confrmPsdIcon.setOpaque(true);
+        mainLayout.add(confrmPsdIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 250, 10, 30));
 
         lblCnfrmPsd.setFont(new java.awt.Font("Segoe UI Semilight", 0, 13)); // NOI18N
         lblCnfrmPsd.setForeground(new java.awt.Color(100, 100, 100));
         lblCnfrmPsd.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblCnfrmPsd.setText("Password");
-        mainLayout.add(lblCnfrmPsd, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 220, -1, 30));
+        mainLayout.add(lblCnfrmPsd, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 220, -1, 30));
 
         lblUsr.setFont(new java.awt.Font("Segoe UI Semilight", 0, 13)); // NOI18N
         lblUsr.setForeground(new java.awt.Color(100, 100, 100));
         lblUsr.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblUsr.setText("Name");
-        mainLayout.add(lblUsr, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 150, -1, 30));
+        mainLayout.add(lblUsr, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 150, -1, 30));
 
         lblPsd.setFont(new java.awt.Font("Segoe UI Semilight", 0, 13)); // NOI18N
         lblPsd.setForeground(new java.awt.Color(100, 100, 100));
         lblPsd.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblPsd.setText("Email");
-        mainLayout.add(lblPsd, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 220, -1, 30));
+        mainLayout.add(lblPsd, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 220, -1, 30));
 
         lblEmail.setFont(new java.awt.Font("Segoe UI Semilight", 0, 13)); // NOI18N
         lblEmail.setForeground(new java.awt.Color(100, 100, 100));
         lblEmail.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblEmail.setText("Username");
-        mainLayout.add(lblEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 150, -1, 30));
+        mainLayout.add(lblEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 150, -1, 30));
 
         fullname.setBackground(new java.awt.Color(240, 240, 240));
         fullname.setFont(new java.awt.Font("Segoe UI Semilight", 0, 14)); // NOI18N
         fullname.setForeground(new java.awt.Color(100, 100, 100));
-        fullname.setToolTipText("Username");
+        fullname.setToolTipText("");
         fullname.setBorder(null);
         fullname.setCaretColor(new java.awt.Color(74, 179, 175));
         mainLayout.add(fullname, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 180, 300, 30));
 
-        minimize.setBackground(new java.awt.Color(255, 255, 255));
+        minimize.setBackground(new java.awt.Color(250, 250, 250));
         minimize.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         minimize.setIcon(new javax.swing.ImageIcon(getClass().getResource("/drawable/minimize.png"))); // NOI18N
         minimize.setOpaque(true);
@@ -252,14 +233,35 @@ public class addAdmin extends javax.swing.JFrame
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 minimizeMouseClicked(evt);
             }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                minimizeMouseEntered(evt);
-            }
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 minimizeMouseExited(evt);
             }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                minimizeMouseEntered(evt);
+            }
         });
         mainLayout.add(minimize, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 0, 40, 30));
+
+        register.setBackground(new java.awt.Color(255, 255, 255));
+        register.setFont(new java.awt.Font("Verdana", 1, 13)); // NOI18N
+        register.setForeground(new java.awt.Color(74, 179, 175));
+        register.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        register.setText("Regtister");
+        register.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(74, 179, 175)));
+        register.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        register.setOpaque(true);
+        register.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                regBtnMouseClicked(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                registerMouseExited(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                registerMouseEntered(evt);
+            }
+        });
+        mainLayout.add(register, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 300, 80, 30));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -295,7 +297,7 @@ public class addAdmin extends javax.swing.JFrame
     }//GEN-LAST:event_bckBtnMouseEntered
 
     private void bckBtnMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bckBtnMouseExited
-        bckBtn.setBackground(new Color(255, 255, 255));
+        bckBtn.setBackground(new Color(250, 250, 250));
     }//GEN-LAST:event_bckBtnMouseExited
 
     private void closeBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_closeBtnMouseClicked
@@ -307,7 +309,7 @@ public class addAdmin extends javax.swing.JFrame
     }//GEN-LAST:event_closeBtnMouseEntered
 
     private void closeBtnMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_closeBtnMouseExited
-        closeBtn.setBackground(new Color(255, 255, 255));
+        closeBtn.setBackground(new Color(250, 250, 250));
     }//GEN-LAST:event_closeBtnMouseExited
 
     private void regBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_regBtnMouseClicked
@@ -319,12 +321,20 @@ public class addAdmin extends javax.swing.JFrame
     }//GEN-LAST:event_minimizeMouseClicked
 
     private void minimizeMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_minimizeMouseExited
-        minimize.setBackground(new Color(255, 255, 255));
+        minimize.setBackground(new Color(250, 250, 250));
     }//GEN-LAST:event_minimizeMouseExited
 
     private void minimizeMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_minimizeMouseEntered
         minimize.setBackground(new Color(240, 240, 240));
     }//GEN-LAST:event_minimizeMouseEntered
+
+    private void registerMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_registerMouseEntered
+        register.setBackground(new Color(240, 240, 240));
+    }//GEN-LAST:event_registerMouseEntered
+
+    private void registerMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_registerMouseExited
+        register.setBackground(new Color(250, 250, 250));
+    }//GEN-LAST:event_registerMouseExited
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -374,7 +384,6 @@ public class addAdmin extends javax.swing.JFrame
     private javax.swing.JLabel minimize;
     private javax.swing.JPasswordField password;
     private javax.swing.JLabel passwordIcon;
-    private javax.swing.JPanel regBtn;
     private javax.swing.JLabel register;
     private javax.swing.JTextField username;
     private javax.swing.JLabel usernameIcon;

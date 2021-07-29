@@ -1,58 +1,61 @@
 package admin;
 
 import db_class.sqlite_connection;
+import java.awt.Color;
 import java.sql.Connection;
 import java.sql.ResultSet;
-import java.awt.Color;
 import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 /**
  *
- * @author Allwell Festus
+ * @author Allwell Onen
  */
 public class profile extends javax.swing.JFrame {
 
     private Connection con;
     private ResultSet rs;
-    
+
     private final String login_username = login.username.getText();
     private final String login_password = login.password.getText();
-    
+
     public profile() {
         initComponents();
         this.setLocationRelativeTo(null);
         Search();
     }
-    
+
     private void db() {
         con = sqlite_connection.connection();
     }
-    
+
     private void close() {
         System.exit(0);
     }
-    
-    private void Search(){
-        try{
-            String query="SELECT * FROM `admin` WHERE  `Username`='"+login_username+"' and `Password`='"+login_password+"'";
-            
+
+    private void minimize() {
+        this.setState(JFrame.ICONIFIED);
+    }
+
+    private void Search() {
+        try {
+            String query = "SELECT * FROM `admin` WHERE `Username`='" + login_username + "' and `Password`='" + login_password + "'";
+
             db();
             rs = con.prepareStatement(query).executeQuery();
-            if(rs.next()){
+            if (rs.next()) {
                 id.setText(rs.getString("ID"));
                 name.setText(rs.getString("Name"));
                 email.setText(rs.getString("Email"));
                 username.setText(rs.getString("Username"));
-            }else{
-                JOptionPane.showMessageDialog(null, "Data not found!");
+            } else {
+                JOptionPane.showMessageDialog(null, "Not found!");
             }
             rs.close();
             con.close();
-        } catch (SQLException ex) {
-            Logger.getLogger(profile.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, e.toString());
         }
     }
 
@@ -68,35 +71,40 @@ public class profile extends javax.swing.JFrame {
         logoutBtn = new javax.swing.JLabel();
         closeBtn = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        name = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
-        email = new javax.swing.JTextField();
-        username = new javax.swing.JTextField();
-        jSeparator1 = new javax.swing.JSeparator();
-        id = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
-        jLabel18 = new javax.swing.JLabel();
+        edit_btn = new javax.swing.JLabel();
         icon1 = new javax.swing.JLabel();
         jSeparator2 = new javax.swing.JSeparator();
         profile_picture = new javax.swing.JLabel();
+        footer = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
+        minimize = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
+        name = new javax.swing.JTextField();
+        jPanel2 = new javax.swing.JPanel();
+        email = new javax.swing.JTextField();
+        jPanel3 = new javax.swing.JPanel();
+        username = new javax.swing.JTextField();
+        id = new javax.swing.JTextField();
+        back_btn = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocationByPlatform(true);
-        setMaximumSize(new java.awt.Dimension(1270, 670));
-        setMinimumSize(new java.awt.Dimension(1270, 670));
+        setMaximumSize(new java.awt.Dimension(1091, 670));
+        setMinimumSize(new java.awt.Dimension(1091, 670));
         setUndecorated(true);
-        setPreferredSize(new java.awt.Dimension(1270, 670));
 
-        mainLayout.setBackground(new java.awt.Color(255, 255, 255));
-        mainLayout.setMaximumSize(new java.awt.Dimension(1270, 670));
-        mainLayout.setMinimumSize(new java.awt.Dimension(1270, 670));
-        mainLayout.setPreferredSize(new java.awt.Dimension(1270, 670));
+        mainLayout.setBackground(new java.awt.Color(250, 250, 250));
+        mainLayout.setMaximumSize(new java.awt.Dimension(1091, 670));
+        mainLayout.setMinimumSize(new java.awt.Dimension(1091, 670));
+        mainLayout.setPreferredSize(new java.awt.Dimension(1091, 670));
         mainLayout.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         icon.setBackground(new java.awt.Color(255, 255, 255));
         icon.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        icon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Receptionist/Gender Neutral User_50px.png"))); // NOI18N
+        icon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/drawable/neutral_user_ico.png"))); // NOI18N
         mainLayout.add(icon, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 20, 80, 90));
 
         crossoverPanel.setBackground(new java.awt.Color(32, 178, 170));
@@ -110,7 +118,7 @@ public class profile extends javax.swing.JFrame {
 
         homeBtn.setBackground(new java.awt.Color(32, 178, 170));
         homeBtn.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        homeBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/Home_25px.png"))); // NOI18N
+        homeBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/drawable/home_ico.png"))); // NOI18N
         homeBtn.setToolTipText("Home");
         homeBtn.setOpaque(true);
         homeBtn.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -124,11 +132,11 @@ public class profile extends javax.swing.JFrame {
                 homeBtnMouseEntered(evt);
             }
         });
-        crossoverPanel.add(homeBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(1150, 0, 50, 50));
+        crossoverPanel.add(homeBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(970, 0, 50, 50));
 
         logoutBtn.setBackground(new java.awt.Color(32, 178, 170));
         logoutBtn.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        logoutBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/Export_25px.png"))); // NOI18N
+        logoutBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/drawable/logout_ico_01.png"))); // NOI18N
         logoutBtn.setToolTipText("Logout");
         logoutBtn.setOpaque(true);
         logoutBtn.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -142,13 +150,13 @@ public class profile extends javax.swing.JFrame {
                 logoutBtnMouseEntered(evt);
             }
         });
-        crossoverPanel.add(logoutBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(1200, 0, 50, 50));
+        crossoverPanel.add(logoutBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(1020, 0, 50, 50));
 
-        mainLayout.add(crossoverPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, 1250, 50));
+        mainLayout.add(crossoverPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, 1070, 50));
 
-        closeBtn.setBackground(new java.awt.Color(255, 255, 255));
+        closeBtn.setBackground(new java.awt.Color(250, 250, 250));
         closeBtn.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        closeBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/icons80x/Multiply_30px.png"))); // NOI18N
+        closeBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/drawable/close_ico_02.png"))); // NOI18N
         closeBtn.setOpaque(true);
         closeBtn.setPreferredSize(new java.awt.Dimension(1300, 700));
         closeBtn.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -162,96 +170,56 @@ public class profile extends javax.swing.JFrame {
                 closeBtnMouseEntered(evt);
             }
         });
-        mainLayout.add(closeBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(1230, 0, 40, 40));
+        mainLayout.add(closeBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(1050, 0, 40, 40));
 
         jLabel1.setBackground(new java.awt.Color(74, 179, 175));
         jLabel1.setFont(new java.awt.Font("Segoe UI Semilight", 0, 14)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setForeground(new java.awt.Color(74, 179, 175));
         jLabel1.setText("Name");
-        jLabel1.setOpaque(true);
-        mainLayout.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 250, 100, 30));
-
-        name.setEditable(false);
-        name.setBackground(new java.awt.Color(240, 240, 240));
-        name.setFont(new java.awt.Font("Segoe UI Semilight", 0, 14)); // NOI18N
-        name.setForeground(new java.awt.Color(100, 100, 100));
-        name.setHorizontalAlignment(javax.swing.JTextField.LEFT);
-        name.setBorder(null);
-        name.setCaretColor(new java.awt.Color(74, 179, 175));
-        mainLayout.add(name, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 250, 620, 30));
+        mainLayout.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 370, 50, 30));
 
         jLabel8.setBackground(new java.awt.Color(74, 179, 175));
         jLabel8.setFont(new java.awt.Font("Segoe UI Semilight", 0, 14)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel8.setForeground(new java.awt.Color(74, 179, 175));
         jLabel8.setText("Email");
-        jLabel8.setOpaque(true);
-        mainLayout.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 340, 100, 30));
-
-        email.setEditable(false);
-        email.setBackground(new java.awt.Color(240, 240, 240));
-        email.setFont(new java.awt.Font("Segoe UI Semilight", 0, 14)); // NOI18N
-        email.setForeground(new java.awt.Color(100, 100, 100));
-        email.setHorizontalAlignment(javax.swing.JTextField.LEFT);
-        email.setBorder(null);
-        email.setCaretColor(new java.awt.Color(74, 179, 175));
-        mainLayout.add(email, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 340, 620, 30));
-
-        username.setEditable(false);
-        username.setBackground(new java.awt.Color(240, 240, 240));
-        username.setFont(new java.awt.Font("Segoe UI Semilight", 0, 14)); // NOI18N
-        username.setForeground(new java.awt.Color(100, 100, 100));
-        username.setHorizontalAlignment(javax.swing.JTextField.LEFT);
-        username.setBorder(null);
-        username.setCaretColor(new java.awt.Color(74, 179, 175));
-        mainLayout.add(username, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 430, 620, 30));
-
-        jSeparator1.setBackground(new java.awt.Color(74, 179, 175));
-        jSeparator1.setForeground(new java.awt.Color(74, 179, 175));
-        mainLayout.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 560, 1370, 10));
-
-        id.setEditable(false);
-        id.setBackground(new java.awt.Color(255, 255, 255));
-        id.setFont(new java.awt.Font("Segoe UI Semilight", 0, 14)); // NOI18N
-        id.setForeground(new java.awt.Color(100, 100, 100));
-        id.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(74, 179, 175)));
-        id.setCaretColor(new java.awt.Color(74, 179, 175));
-        mainLayout.add(id, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 110, 560, 30));
+        mainLayout.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 510, 50, 30));
 
         jLabel11.setBackground(new java.awt.Color(74, 179, 175));
-        jLabel11.setFont(new java.awt.Font("Segoe UI Semilight", 0, 14)); // NOI18N
+        jLabel11.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(255, 255, 255));
         jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel11.setText("ID");
         jLabel11.setOpaque(true);
-        mainLayout.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 110, 40, 30));
+        mainLayout.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 110, 40, 30));
 
         jLabel17.setBackground(new java.awt.Color(74, 179, 175));
         jLabel17.setFont(new java.awt.Font("Segoe UI Semilight", 0, 14)); // NOI18N
-        jLabel17.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel17.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel17.setForeground(new java.awt.Color(74, 179, 175));
         jLabel17.setText("Username");
-        jLabel17.setOpaque(true);
-        mainLayout.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 430, 100, 30));
+        mainLayout.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 440, 80, 30));
 
-        jLabel18.setBackground(new java.awt.Color(32, 178, 170));
-        jLabel18.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
-        jLabel18.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel18.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel18.setText("Edit Profile");
-        jLabel18.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jLabel18.setOpaque(true);
-        jLabel18.addMouseListener(new java.awt.event.MouseAdapter() {
+        edit_btn.setBackground(new java.awt.Color(32, 178, 170));
+        edit_btn.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
+        edit_btn.setForeground(new java.awt.Color(32, 178, 170));
+        edit_btn.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        edit_btn.setText("Edit Profile");
+        edit_btn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        edit_btn.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel18MouseClicked(evt);
+                edit_btnMouseClicked(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                edit_btnMouseExited(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                edit_btnMouseEntered(evt);
             }
         });
-        mainLayout.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(1100, 110, 140, 30));
+        mainLayout.add(edit_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 180, 90, 20));
 
         icon1.setBackground(new java.awt.Color(255, 255, 255));
         icon1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        icon1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/pictures/New Moon_100px_1.png"))); // NOI18N
+        icon1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/drawable/circle_bg_green.png"))); // NOI18N
         mainLayout.add(icon1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 20, 80, 90));
 
         jSeparator2.setBackground(new java.awt.Color(74, 179, 175));
@@ -260,21 +228,115 @@ public class profile extends javax.swing.JFrame {
 
         profile_picture.setForeground(new java.awt.Color(100, 100, 100));
         profile_picture.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        profile_picture.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/icons80x/User_100px_1.png"))); // NOI18N
+        profile_picture.setIcon(new javax.swing.ImageIcon(getClass().getResource("/drawable/default_dp.png"))); // NOI18N
         profile_picture.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(187, 187, 187)));
-        mainLayout.add(profile_picture, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 230, 210, 240));
+        mainLayout.add(profile_picture, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 180, 170, 190));
+
+        footer.setBackground(new java.awt.Color(240, 240, 240));
+        footer.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel2.setFont(new java.awt.Font("Verdana", 0, 11)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(100, 100, 100));
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel2.setText("Copyright © 2021");
+        footer.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 0, 160, 30));
+
+        mainLayout.add(footer, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 640, 1090, 30));
+
+        minimize.setBackground(new java.awt.Color(250, 250, 250));
+        minimize.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        minimize.setIcon(new javax.swing.ImageIcon(getClass().getResource("/drawable/minimize.png"))); // NOI18N
+        minimize.setOpaque(true);
+        minimize.setPreferredSize(new java.awt.Dimension(1300, 700));
+        minimize.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                minimizeMouseClicked(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                minimizeMouseExited(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                minimizeMouseEntered(evt);
+            }
+        });
+        mainLayout.add(minimize, new org.netbeans.lib.awtextra.AbsoluteConstraints(1010, 0, 40, 40));
+
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        name.setEditable(false);
+        name.setBackground(new java.awt.Color(240, 240, 240));
+        name.setFont(new java.awt.Font("Segoe UI Semilight", 0, 14)); // NOI18N
+        name.setForeground(new java.awt.Color(100, 100, 100));
+        name.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        name.setBorder(null);
+        name.setCaretColor(new java.awt.Color(74, 179, 175));
+        jPanel1.add(name, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 640, 30));
+
+        mainLayout.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 400, 660, 30));
+
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        email.setEditable(false);
+        email.setBackground(new java.awt.Color(240, 240, 240));
+        email.setFont(new java.awt.Font("Segoe UI Semilight", 0, 14)); // NOI18N
+        email.setForeground(new java.awt.Color(100, 100, 100));
+        email.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        email.setBorder(null);
+        email.setCaretColor(new java.awt.Color(74, 179, 175));
+        jPanel2.add(email, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 640, 30));
+
+        mainLayout.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 540, 660, 30));
+
+        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        username.setEditable(false);
+        username.setBackground(new java.awt.Color(240, 240, 240));
+        username.setFont(new java.awt.Font("Segoe UI Semilight", 0, 14)); // NOI18N
+        username.setForeground(new java.awt.Color(100, 100, 100));
+        username.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        username.setBorder(null);
+        username.setCaretColor(new java.awt.Color(74, 179, 175));
+        jPanel3.add(username, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 640, 30));
+
+        mainLayout.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 470, 660, 30));
+
+        id.setEditable(false);
+        id.setBackground(new java.awt.Color(250, 250, 250));
+        id.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
+        id.setForeground(new java.awt.Color(100, 100, 100));
+        id.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        id.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(74, 179, 175)));
+        id.setCaretColor(new java.awt.Color(74, 179, 175));
+        mainLayout.add(id, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 110, 100, 30));
+
+        back_btn.setBackground(new java.awt.Color(32, 178, 170));
+        back_btn.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
+        back_btn.setForeground(new java.awt.Color(100, 100, 100));
+        back_btn.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        back_btn.setText("Back");
+        back_btn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        back_btn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                back_btnMouseClicked(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                back_btnMouseExited(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                back_btnMouseEntered(evt);
+            }
+        });
+        mainLayout.add(back_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 170, 50, 20));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(mainLayout, javax.swing.GroupLayout.PREFERRED_SIZE, 1270, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(mainLayout, javax.swing.GroupLayout.PREFERRED_SIZE, 1091, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(mainLayout, javax.swing.GroupLayout.PREFERRED_SIZE, 670, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 12, Short.MAX_VALUE))
+            .addComponent(mainLayout, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -286,7 +348,7 @@ public class profile extends javax.swing.JFrame {
     }//GEN-LAST:event_homeBtnMouseClicked
 
     private void homeBtnMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_homeBtnMouseEntered
-        homeBtn.setBackground(new Color(64,169,165));
+        homeBtn.setBackground(new Color(64, 169, 165));
     }//GEN-LAST:event_homeBtnMouseEntered
 
     private void homeBtnMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_homeBtnMouseExited
@@ -299,7 +361,7 @@ public class profile extends javax.swing.JFrame {
     }//GEN-LAST:event_logoutBtnMouseClicked
 
     private void logoutBtnMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logoutBtnMouseEntered
-        logoutBtn.setBackground(new Color(64,169,165));
+        logoutBtn.setBackground(new Color(64, 169, 165));
     }//GEN-LAST:event_logoutBtnMouseEntered
 
     private void logoutBtnMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logoutBtnMouseExited
@@ -311,17 +373,50 @@ public class profile extends javax.swing.JFrame {
     }//GEN-LAST:event_closeBtnMouseClicked
 
     private void closeBtnMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_closeBtnMouseEntered
-        closeBtn.setBackground(new Color(240,240,240));
+        closeBtn.setBackground(new Color(240, 240, 240));
     }//GEN-LAST:event_closeBtnMouseEntered
 
     private void closeBtnMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_closeBtnMouseExited
-        closeBtn.setBackground(new Color(255,255,255));
+        closeBtn.setBackground(new Color(250, 250, 250));
     }//GEN-LAST:event_closeBtnMouseExited
 
-    private void jLabel18MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel18MouseClicked
+    private void edit_btnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_edit_btnMouseClicked
         new editProfile().show();
         dispose();
-    }//GEN-LAST:event_jLabel18MouseClicked
+    }//GEN-LAST:event_edit_btnMouseClicked
+
+    private void minimizeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_minimizeMouseClicked
+        minimize();
+    }//GEN-LAST:event_minimizeMouseClicked
+
+    private void minimizeMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_minimizeMouseExited
+        minimize.setBackground(new Color(250, 250, 250));
+    }//GEN-LAST:event_minimizeMouseExited
+
+    private void minimizeMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_minimizeMouseEntered
+        minimize.setBackground(new Color(240, 240, 240));
+    }//GEN-LAST:event_minimizeMouseEntered
+
+    private void edit_btnMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_edit_btnMouseEntered
+        edit_btn.setForeground(new Color(100, 100, 100));
+    }//GEN-LAST:event_edit_btnMouseEntered
+
+    private void edit_btnMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_edit_btnMouseExited
+        edit_btn.setForeground(new Color(32, 178, 170));
+    }//GEN-LAST:event_edit_btnMouseExited
+
+    private void back_btnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_back_btnMouseClicked
+        new adminDashboard().show();
+        this.dispose();
+    }//GEN-LAST:event_back_btnMouseClicked
+
+    private void back_btnMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_back_btnMouseExited
+        back_btn.setForeground(new Color(100, 100, 100));
+    }//GEN-LAST:event_back_btnMouseExited
+
+    private void back_btnMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_back_btnMouseEntered
+        back_btn.setForeground(new Color(32, 178, 170));
+    }//GEN-LAST:event_back_btnMouseEntered
 
     /**
      * @param args the command line arguments
@@ -330,7 +425,7 @@ public class profile extends javax.swing.JFrame {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
@@ -344,7 +439,7 @@ public class profile extends javax.swing.JFrame {
         }
         //</editor-fold>
         //</editor-fold>
-        
+
         //</editor-fold>
         //</editor-fold>
 
@@ -355,9 +450,12 @@ public class profile extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel back_btn;
     private javax.swing.JLabel closeBtn;
     private javax.swing.JPanel crossoverPanel;
+    private javax.swing.JLabel edit_btn;
     private javax.swing.JTextField email;
+    private javax.swing.JPanel footer;
     private javax.swing.JLabel homeBtn;
     private javax.swing.JLabel icon;
     private javax.swing.JLabel icon1;
@@ -365,12 +463,15 @@ public class profile extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel17;
-    private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JLabel logoutBtn;
     private javax.swing.JPanel mainLayout;
+    private javax.swing.JLabel minimize;
     private javax.swing.JTextField name;
     private javax.swing.JLabel patientDetails;
     private javax.swing.JLabel profile_picture;

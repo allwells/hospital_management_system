@@ -26,7 +26,7 @@ public class profile extends javax.swing.JFrame
 
     public void Search() {
         try {
-            String query = "SELECT * FROM `receptionist` WHERE username='" + login.username.getText() + "'";
+            String query = "SELECT * FROM `receptionist` WHERE username='" + login.email.getText() + "'";
             con = DriverManager.getConnection("jdbc:mysql://localhost:3306/hms", "root", "");
             pst = con.prepareStatement(query);
             rs = pst.executeQuery();
