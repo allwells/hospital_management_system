@@ -5,10 +5,9 @@ import javax.swing.JFrame;
 
 /**
  *
- * @author Allwell Festus
+ * @author Allwell Onen
  */
-public class login extends javax.swing.JFrame
-{
+public class login extends javax.swing.JFrame {
 
     public login() {
         initComponents();
@@ -43,7 +42,7 @@ public class login extends javax.swing.JFrame
         setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        mainLayout.setBackground(new java.awt.Color(255, 255, 255));
+        mainLayout.setBackground(new java.awt.Color(250, 250, 250));
         mainLayout.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         logoPanel.setBackground(new java.awt.Color(32, 178, 170));
@@ -53,7 +52,7 @@ public class login extends javax.swing.JFrame
         logoTxt.setFont(new java.awt.Font("BankGothic Lt BT", 0, 36)); // NOI18N
         logoTxt.setForeground(new java.awt.Color(240, 240, 240));
         logoTxt.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        logoTxt.setText("HarryLand Hospital");
+        logoTxt.setText("Hospital Management");
         logoPanel.add(logoTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 0, -1, 50));
 
         logo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -78,7 +77,7 @@ public class login extends javax.swing.JFrame
 
         mainLayout.add(login, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 120, 120, 40));
 
-        closeBtn.setBackground(new java.awt.Color(255, 255, 255));
+        closeBtn.setBackground(new java.awt.Color(250, 250, 250));
         closeBtn.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         closeBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/drawable/close_ico_02.png"))); // NOI18N
         closeBtn.setOpaque(true);
@@ -95,7 +94,7 @@ public class login extends javax.swing.JFrame
         });
         mainLayout.add(closeBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 0, 40, 30));
 
-        minimize.setBackground(new java.awt.Color(255, 255, 255));
+        minimize.setBackground(new java.awt.Color(250, 250, 250));
         minimize.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         minimize.setIcon(new javax.swing.ImageIcon(getClass().getResource("/drawable/minimize.png"))); // NOI18N
         minimize.setOpaque(true);
@@ -225,7 +224,7 @@ public class login extends javax.swing.JFrame
     }//GEN-LAST:event_closeBtnMouseEntered
 
     private void closeBtnMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_closeBtnMouseExited
-        closeBtn.setBackground(new Color(255, 255, 255));
+        closeBtn.setBackground(new Color(250, 250, 250));
     }//GEN-LAST:event_closeBtnMouseExited
 
     private void adminMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_adminMouseClicked
@@ -252,7 +251,7 @@ public class login extends javax.swing.JFrame
     }//GEN-LAST:event_minimizeMouseEntered
 
     private void minimizeMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_minimizeMouseExited
-        minimize.setBackground(new Color(255, 255, 255));
+        minimize.setBackground(new Color(250, 250, 250));
     }//GEN-LAST:event_minimizeMouseExited
 
     /**

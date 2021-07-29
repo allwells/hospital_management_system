@@ -7,8 +7,7 @@ import java.util.logging.Logger;
  *
  * @author Allwell Festus
  */
-public class splashscreen extends javax.swing.JFrame
-{
+public class splashscreen extends javax.swing.JFrame {
 
     public splashscreen() {
         initComponents();
@@ -77,7 +76,7 @@ public class splashscreen extends javax.swing.JFrame
         jLabel3.setFont(new java.awt.Font("Open Sans", 0, 11)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel3.setText("HARRYLAND Copyright 2020");
+        jLabel3.setText("Copyright 2021");
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 0, 170, 30));
 
         mainLayout.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 270, 500, 30));
@@ -121,7 +120,7 @@ public class splashscreen extends javax.swing.JFrame
         jLabel4.setFont(new java.awt.Font("Open Sans", 0, 36)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(74, 179, 175));
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel4.setText("HARRYLAND HOSPITAL");
+        jLabel4.setText("HOSPITAL MANAGEMENT");
         mainLayout.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 15, 430, 60));
 
         progress_label.setFont(new java.awt.Font("Open Sans", 0, 12)); // NOI18N

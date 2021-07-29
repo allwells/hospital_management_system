@@ -16,8 +16,7 @@ import javax.swing.JOptionPane;
 public class addReceptionist extends javax.swing.JFrame {
 
     private Connection con;
-    private Random rand = new Random();
-    private String receptionist_password = "reception_pass";
+    private final Random rand = new Random();
     private int rndm;
 
     public addReceptionist() {
@@ -27,7 +26,7 @@ public class addReceptionist extends javax.swing.JFrame {
         id.enable(false);
     }
 
-    public void RandomNumberGen() {
+    private void RandomNumberGen() {
         rndm = rand.nextInt(992467);
         id.setText("REP-" + rndm);
     }
@@ -38,6 +37,8 @@ public class addReceptionist extends javax.swing.JFrame {
 
     private void addRecptionist() {
         try {
+
+            final String receptionist_password = email.getText();
             String query = "INSERT INTO `receptionist`(`ID`, `Firstname`, `Lastname`, `DOB`, `Gender`, `Status`,"
                     + " `Date`, `Address`, `Email`, `Phone`, `Username`, `Password`) "
                     + "VALUES ('" + id.getText() + "', '" + fname.getText() + "', '" + lname.getText() + "', '"

@@ -39,7 +39,7 @@ public class login extends javax.swing.JFrame {
     private void Login() {
         try {
             String sqlite = "SELECT * FROM `doctor` "
-                    + "WHERE `username`='" + email.getText() + "' "
+                    + "WHERE `email`='" + email.getText() + "' "
                     + "and `password`='" + password.getText() + "'";
 
             db();
@@ -48,7 +48,7 @@ public class login extends javax.swing.JFrame {
                 new docPortal().show();
                 dispose();
             } else {
-                JOptionPane.showMessageDialog(null, "Incorrect username or password!");
+                JOptionPane.showMessageDialog(null, "Incorrect email or password!");
                 email.setText("");
                 password.setText("");
             }

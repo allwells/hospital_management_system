@@ -6,7 +6,6 @@ import java.awt.Color;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFrame;
@@ -18,7 +17,6 @@ import javax.swing.JOptionPane;
  */
 public class login extends javax.swing.JFrame {
 
-    private Statement stmt;
     private Connection con;
     private ResultSet rs;
 
@@ -43,7 +41,7 @@ public class login extends javax.swing.JFrame {
     private void Login() {
         try {
             if (email.getText().equals("") && password.getText().equals("")) {
-                warning.setText("Please enter your username and password!");
+                warning.setText("Please enter your email and password!");
                 warning2.setText("");
                 warning1.setText("");
                 return;
@@ -62,13 +60,13 @@ public class login extends javax.swing.JFrame {
             }
 
             db();
-            String sql = "SELECT * FROM `admin` WHERE `username`='" + email.getText() + "' and `password`='" + password.getText() + "'";
+            String sql = "SELECT * FROM `receptionist` WHERE `email`='" + email.getText() + "' and `password`='" + password.getText() + "'";
             rs = con.prepareStatement(sql).executeQuery();
             if (rs.next()) {
                 new adminDashboard().show();
                 this.hide();
             } else {
-                JOptionPane.showMessageDialog(null, "Invalid username or password!", "Invalid", 1);
+                JOptionPane.showMessageDialog(null, "Invalid email or password!", "Invalid", 1);
                 password.setText("");
                 warning.setText("");
                 warning1.setText("");
@@ -132,8 +130,8 @@ public class login extends javax.swing.JFrame {
         adminLogin.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
         adminLogin.setForeground(new java.awt.Color(240, 240, 240));
         adminLogin.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        adminLogin.setText("ADMIN LOGIN PANEL");
-        loginPanel.add(adminLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 0, 150, 40));
+        adminLogin.setText("RECEPTIONIST LOGIN PANEL");
+        loginPanel.add(adminLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 0, 190, 40));
 
         mainLayout.add(loginPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 80, 270, 40));
 

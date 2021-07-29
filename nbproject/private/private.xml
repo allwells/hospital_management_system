@@ -3,9 +3,14 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/home/allie/Personal/hospital_management_system/src/admin/updatePatient.java</file>
             <file>file:/home/allie/Personal/hospital_management_system/src/admin/adminDashboard.java</file>
-            <file>file:/home/allie/Personal/hospital_management_system/src/admin/addPatient.java</file>
-            <file>file:/home/allie/Personal/hospital_management_system/src/admin/addAdmin.java</file>
+            <file>file:/home/allie/Personal/hospital_management_system/src/admin/addDoctor.java</file>
+            <file>file:/home/allie/Personal/hospital_management_system/src/admin/deletePatient.java</file>
+            <file>file:/home/allie/Personal/hospital_management_system/src/admin/addReceptionist.java</file>
+            <file>file:/home/allie/Personal/hospital_management_system/src/admin/updateDoctor.java</file>
+            <file>file:/home/allie/Personal/hospital_management_system/src/Receptionist/login.java</file>
+            <file>file:/home/allie/Personal/hospital_management_system/src/admin/updateReceptionist.java</file>
         </group>
     </open-files>
 </project-private>

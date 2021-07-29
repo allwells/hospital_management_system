@@ -2,6 +2,7 @@ package admin;
 
 import db_class.sqlite_connection;
 import java.awt.Color;
+import java.awt.HeadlessException;
 import java.sql.*;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -30,11 +31,12 @@ public class deletePatient extends javax.swing.JFrame {
     private void deletePatient() {
         try {
             String sql = "DELETE FROM `patient` where `Firstname`='" + search.getText() + "' or `ID`='" + search.getText() + "'";
+            db();
             pst = con.prepareStatement(sql);
             pst.executeUpdate();
             JOptionPane.showMessageDialog(null, search.getText() + " deleted successfully!");
             Select();
-        } catch (Exception e) {
+        } catch (HeadlessException | SQLException e) {
             JOptionPane.showMessageDialog(null, e.toString());
         }
     }
@@ -43,6 +45,7 @@ public class deletePatient extends javax.swing.JFrame {
         try {
             String sql = "SELECT `ID`, `Firstname`, `Lastname`, `DOB`, `Gender`, `Status`, `Date`, `Address`, `City`, `Phone`,"
                     + " `PatientType`, `Ward`, `Bed` FROM `patient`";
+            db();
             pst = con.prepareStatement(sql);
             rs = pst.executeQuery();
             table.setModel(DbUtils.resultSetToTableModel(rs));
@@ -56,6 +59,7 @@ public class deletePatient extends javax.swing.JFrame {
         try {
             String sql = "SELECT `ID`, `Firstname`, `Lastname`, `DOB`, `Gender`, `Status`, `Date`, `Address`, `City`, `Phone`,"
                     + " `PatientType`, `Ward`, `Bed` FROM `patient`";
+            db();
             pst = con.prepareStatement(sql);
             rs = pst.executeQuery();
             table.setModel(DbUtils.resultSetToTableModel(rs));
@@ -75,7 +79,6 @@ public class deletePatient extends javax.swing.JFrame {
         crossoverPanel = new javax.swing.JPanel();
         patientDetails = new javax.swing.JLabel();
         homeBtn = new javax.swing.JLabel();
-        logoutBtn = new javax.swing.JLabel();
         closeBtn = new javax.swing.JLabel();
         addPat = new javax.swing.JLabel();
         delPat = new javax.swing.JLabel();
@@ -133,26 +136,7 @@ public class deletePatient extends javax.swing.JFrame {
                 homeBtnMouseEntered(evt);
             }
         });
-        crossoverPanel.add(homeBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 0, 50, 40));
-
-        logoutBtn.setBackground(new java.awt.Color(74, 179, 175));
-        logoutBtn.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        logoutBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/drawable/logout_ico_01.png"))); // NOI18N
-        logoutBtn.setToolTipText("Logout");
-        logoutBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        logoutBtn.setOpaque(true);
-        logoutBtn.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                logoutBtnMouseClicked(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                logoutBtnMouseExited(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                logoutBtnMouseEntered(evt);
-            }
-        });
-        crossoverPanel.add(logoutBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(970, 0, 50, 40));
+        crossoverPanel.add(homeBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(970, 0, 50, 40));
 
         mainLayout.add(crossoverPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 50, 1020, 40));
 
@@ -339,11 +323,6 @@ public class deletePatient extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_homeBtnMouseClicked
 
-    private void logoutBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logoutBtnMouseClicked
-        new login().show();
-        dispose();
-    }//GEN-LAST:event_logoutBtnMouseClicked
-
     private void closeBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_closeBtnMouseClicked
         System.exit(0);
     }//GEN-LAST:event_closeBtnMouseClicked
@@ -353,7 +332,7 @@ public class deletePatient extends javax.swing.JFrame {
     }//GEN-LAST:event_closeBtnMouseEntered
 
     private void closeBtnMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_closeBtnMouseExited
-        closeBtn.setBackground(new Color(255, 255, 255));
+        closeBtn.setBackground(new Color(250, 250, 250));
     }//GEN-LAST:event_closeBtnMouseExited
 
     private void viewPatMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_viewPatMouseClicked
@@ -387,14 +366,6 @@ public class deletePatient extends javax.swing.JFrame {
         jLabel1.setBackground(new Color(74, 179, 175));
     }//GEN-LAST:event_jLabel1MouseExited
 
-    private void logoutBtnMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logoutBtnMouseEntered
-        logoutBtn.setBackground(new Color(64, 169, 165));
-    }//GEN-LAST:event_logoutBtnMouseEntered
-
-    private void logoutBtnMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logoutBtnMouseExited
-        logoutBtn.setBackground(new Color(74, 179, 175));
-    }//GEN-LAST:event_logoutBtnMouseExited
-
     private void homeBtnMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_homeBtnMouseEntered
         homeBtn.setBackground(new Color(64, 169, 165));
     }//GEN-LAST:event_homeBtnMouseEntered
@@ -408,7 +379,7 @@ public class deletePatient extends javax.swing.JFrame {
     }//GEN-LAST:event_minimizeMouseClicked
 
     private void minimizeMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_minimizeMouseExited
-        minimize.setBackground(new Color(255, 255, 255));
+        minimize.setBackground(new Color(250, 250, 250));
     }//GEN-LAST:event_minimizeMouseExited
 
     private void minimizeMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_minimizeMouseEntered
@@ -431,22 +402,16 @@ public class deletePatient extends javax.swing.JFrame {
                     break;
                 }
             }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(deletePatient.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(deletePatient.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(deletePatient.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(deletePatient.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
+        //</editor-fold>
+
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new deletePatient().setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            new deletePatient().setVisible(true);
         });
     }
 
@@ -463,7 +428,6 @@ public class deletePatient extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JLabel logoutBtn;
     private javax.swing.JPanel mainLayout;
     private javax.swing.JLabel minimize;
     private javax.swing.JLabel patientDetails;

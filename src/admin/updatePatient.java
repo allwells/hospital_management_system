@@ -30,7 +30,7 @@ public class updatePatient extends javax.swing.JFrame {
 
     private void Search() {
         try {
-            String query = "SELECT * FROM `patient` WHERE Patient_ID='" + id.getText() + "'";
+            String query = "SELECT * FROM `patient` WHERE `ID`='" + id.getText() + "'";
             db();
             pst = con.prepareStatement(query);
             rs = pst.executeQuery();
